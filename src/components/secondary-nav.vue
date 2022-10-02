@@ -35,6 +35,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 .header-nav {
+  background-color: rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,18 +46,16 @@
     align-items: center;
     p {
       margin-left: 1rem;
-      font-size: 15px;
+      font-size: 16px;
       text-align: center;
-      font-family: 'Great Vibes', cursive;
+      font-family: "Great Vibes", cursive;
+      color: rgb(55, 231, 55);
       span {
+        color: white;
         display: block;
         font-family: "Open Sans", sans-serif;
       }
     }
-  }
-  .v-btn {
-    background-color: red;
-    font-size: 18px;
   }
 }
 

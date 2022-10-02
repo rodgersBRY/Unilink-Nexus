@@ -1,10 +1,13 @@
 <template>
   <div class="header-nav">
-    <img
-      width="100px"
-      :src="require('@/assets/logo.png')"
-      alt="unilink nexus, study abroad, study in kenya"
-    />
+    <div class="logo-div">
+      <img
+        width="100px"
+        :src="require('@/assets/logo.png')"
+        alt="unilink nexus, study abroad, study in kenya"
+      />
+      <p>Unilink <span>Nexus International</span></p>
+    </div>
     <nav>
       <ul>
         <router-link tag="li" to="/" exact-active-class="active"
@@ -13,9 +16,7 @@
         <router-link tag="li" to="/about" active-class="active"
           >About Us</router-link
         >
-        <router-link tag="li" to="#" active-class="active"
-          >Courses</router-link
-        >
+        <router-link tag="li" to="#" active-class="active">Courses</router-link>
         <router-link tag="li" to="#" active-class="active"
           >Services</router-link
         >
@@ -37,6 +38,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  .logo-div {
+    display: flex;
+    align-items: center;
+    p {
+      margin-left: 1rem;
+      font-size: 15px;
+      text-align: center;
+      font-family: "Great Vibes", cursive;
+      color: rgb(55, 231, 55);
+      span {
+        color: black;
+        display: block;
+        font-family: "Open Sans", sans-serif;
+      }
+    }
+  }
   .v-btn {
     background-color: red;
     font-size: 18px;
@@ -52,8 +69,8 @@ nav li {
 
   &:hover,
   &.active {
-    color: green;
-    border-top: 3px solid green;
+    color: rgb(55, 231, 55);
+    border-top: 3px solid rgb(55, 231, 55);
     cursor: pointer;
   }
 }

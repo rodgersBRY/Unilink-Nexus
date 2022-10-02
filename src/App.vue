@@ -40,12 +40,12 @@ footer {
   padding: 1rem 3rem;
 
   p {
-    font-size: 19px;
+    font-size: 14px;
     color: grey;
   }
   .social-media i {
     margin: 0 10px;
-    background: rgba(138, 251, 255, 0.5);
+    background: rgba(138, 251, 255, 0.2);
     border-radius: 50%;
     padding: 7px;
   }

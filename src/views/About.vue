@@ -12,6 +12,21 @@
         </div>
       </div>
     </header>
+
+    <main>
+      <section class="more-details">
+        <div class="image-div">
+          <img
+            width="100%"
+            :src="require('../assets/study-abroad.jpg')"
+            alt="about unilink"
+          />
+        </div>
+        <div class="hello-div">
+          <h2>Hi, We are Unilink Nexus International</h2>
+        </div>
+      </section>
+    </main>
   </div>
 </template>
 
@@ -42,9 +57,17 @@ header {
       a {
         display: inline;
         text-decoration: none;
-        color: white;
+        color: rgb(255, 145, 72);
+      }
+      i {
+        margin: 0 10px;
       }
     }
   }
+}
+
+.more-details {
+  display: flex;
+  .image-
 }
 </style>
