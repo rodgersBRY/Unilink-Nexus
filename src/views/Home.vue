@@ -42,7 +42,7 @@
         </div>
         <div class="numbers-div">
           <div class="numbers" v-for="(stat, i) in stats" :key="i">
-            <i :class="[stat.icon, 'pink--text']"></i>
+            <i :class="stat.icon"></i>
             <h3>{{ stat.numbers }}</h3>
             <p>{{ stat.text }}</p>
           </div>
@@ -53,7 +53,10 @@
         <h2 style="text-align: center">Testimonials</h2>
         <div class="testimony-card">
           <v-avatar size="100" color="blue">
-            <img :src="require('../assets/testimony-1.jpg')" alt="unilink students" />
+            <img
+              :src="require('../assets/testimony-1.jpg')"
+              alt="unilink students"
+            />
           </v-avatar>
           <div>
             <i class="bx bxs-quote-left bx-md"></i>
@@ -148,17 +151,10 @@ export default {
 .services-cards {
   margin: 4rem;
   display: flex;
+  justify-content: center;
   .v-card {
     margin: 0 16px;
   }
-}
-.numbers {
-  width: 200px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .watermark {
@@ -183,12 +179,24 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 2rem 6rem;
+  width: 60%;
+  margin: auto;
+  .numbers {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 .testimonials {
-  margin: 5rem 0;
+  background: rgb(245, 245, 245);
+  margin-top: 5rem;
+  padding: 5rem 0;
   .testimony-card {
     width: 50%;
-    margin: 2rem auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     .v-avatar {

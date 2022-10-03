@@ -1,10 +1,13 @@
 <template>
   <div class="header-nav">
-    <img
-      width="100px"
-      :src="require('@/assets/logo.png')"
-      alt="unilink nexus, study abroad, study in kenya"
-    />
+    <div class="logo-div">
+      <img
+        width="100px"
+        src="../assets/logo.png"
+        alt="unilink nexus, study abroad, study in kenya"
+      />
+      <p>Unilink <span>Nexus International</span></p>
+    </div>
     <nav>
       <ul>
         <router-link tag="li" to="/" exact-active-class="active"
@@ -14,15 +17,9 @@
           >About Us</router-link
         >
         <router-link tag="li" to="#" active-class="active"
-          >Courses</router-link
+          >Study Abroad</router-link
         >
-        <router-link tag="li" to="#" active-class="active"
-          >Services</router-link
-        >
-        <router-link tag="li" to="#" active-class="active"
-          >Destinations</router-link
-        >
-        <router-link tag="li" to="#" active-class="active"
+        <router-link tag="li" to="/contact-us" active-class="active"
           >Contact Us</router-link
         >
       </ul>
@@ -32,11 +29,28 @@
 </template>
 
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 .header-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  .logo-div {
+    display: flex;
+    align-items: center;
+    p {
+      margin-left: 1rem;
+      font-size: 15px;
+      text-align: center;
+      font-family: "Great Vibes", cursive;
+      color: rgb(78, 255, 117);
+      span {
+        color: black;
+        display: block;
+        font-family: "Open Sans", sans-serif;
+      }
+    }
+  }
   .v-btn {
     background-color: red;
     font-size: 18px;
@@ -52,8 +66,8 @@ nav li {
 
   &:hover,
   &.active {
-    color: green;
-    border-top: 3px solid green;
+    color: rgb(78, 255, 117);
+    border-top: 3px solid rgb(78, 255, 117);
     cursor: pointer;
   }
 }

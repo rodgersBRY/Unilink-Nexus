@@ -3,7 +3,7 @@
     <div class="logo-div">
       <img
         width="100px"
-        :src="require('@/assets/logo.png')"
+        src="../assets/logo.png"
         alt="unilink nexus, study abroad, study in kenya"
       />
       <p>Unilink <span>Nexus International</span></p>
@@ -16,14 +16,10 @@
         <router-link tag="li" to="/about" active-class="active"
           >About Us</router-link
         >
-        <router-link tag="li" to="#" active-class="active">Courses</router-link>
         <router-link tag="li" to="#" active-class="active"
-          >Services</router-link
+          >Study Abroad</router-link
         >
-        <router-link tag="li" to="#" active-class="active"
-          >Destinations</router-link
-        >
-        <router-link tag="li" to="#" active-class="active"
+        <router-link tag="li" to="/contact-us" active-class="active"
           >Contact Us</router-link
         >
       </ul>
@@ -48,15 +44,13 @@
       font-size: 15px;
       text-align: center;
       font-family: 'Great Vibes', cursive;
+      color: rgb(78, 255, 117);
       span {
+        color: white;
         display: block;
         font-family: "Open Sans", sans-serif;
       }
     }
-  }
-  .v-btn {
-    background-color: red;
-    font-size: 18px;
   }
 }
 
@@ -67,8 +61,8 @@ nav li {
   padding: 2rem 5px;
   &:hover,
   &.active {
-    color: green;
-    border-top: 3px solid green;
+    color: rgb(78, 255, 117);
+    border-top: 3px solid rgb(78, 255, 117);
     cursor: pointer;
   }
 }
