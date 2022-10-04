@@ -8,10 +8,16 @@
       <section class="title-div">
         <h2>Hundreds of Amazing Destinations</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto eos
-          ratione fugiat, facere voluptatem, atque rem quos consectetur incidunt
-          consequatur vitae exercitationem optio? Voluptatibus et saepe illum
-          vel? Eligendi, distinctio?
+          Unilink Nexus International(UNI) is an Education Consultancy company
+          that offers support and advice to international students who desire to
+          pursue higher education abroad. We work with the best interest of our
+          students at heart. We are professional and reliable
+        </p>
+        <p>
+          Education is a fundamental right and everyone should have access to
+          quality higher education. It is with this view in mind, that we strive
+          to create opportunities for those who have genuine aspiration and
+          honest intention seeking A1, higher education institutions overseas.
         </p>
       </section>
 
@@ -136,7 +142,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // color: white;
   padding: 5rem 3rem;
   h2 {
     font-size: 30px;

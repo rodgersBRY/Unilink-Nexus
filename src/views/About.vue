@@ -18,17 +18,13 @@
         <div>
           <h2>HI,WE ARE <span>UNILINK NEXUS</span></h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            consequuntur perspiciatis veritatis!
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio amet
-            cum quod inventore consectetur excepturi soluta ipsum odit,
-            voluptatem laborum. Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Laudantium asperiores corporis odio ad
-            repellendus, aliquam, sed inventore ducimus perspiciatis eum eveniet
-            necessitatibus pariatur ullam enim voluptatem sapiente odit sequi
-            incidunt!
+            Over the past year Unilink Nexus International has assisted students
+            from Burundi to explore new education opportunities. Our vision has
+            always been to create a one stop centre for students where they find
+            the support they need. Our consultancy services have always been
+            offered free of charge to our students, and we strive to ensure
+            their progression within their course beyond their enrolment and
+            towards the completion of their study
           </p>
         </div>
         <img
@@ -44,17 +40,16 @@
             <span><i :class="item.icon"></i></span>
             {{ item.title }}
           </h2>
-          <p>
-            {{ item.desc }}
-          </p>
+          <p v-html="item.desc"></p>
         </div>
       </section>
 
       <section class="contactus-section">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus
-          vero eum odio, mollitia aspernatur perferendis. Fugiat ratione
-          adipisci dicta a culpa corporis commodi expedita!
+          Our consultancy services have always been offered free of charge to
+          our students, and we strive to ensure their progression within their
+          course beyond their enrolment and towards the completion of their
+          study.
         </p>
         <div class="action-btns">
           <v-btn depressed to="/contact-us">CONTACT US</v-btn>
@@ -83,19 +78,19 @@ export default {
     return {
       values: [
         {
-          icon: "bx bx-cable-car bx-md",
-          title: "VOYAGES & CRUISES",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus vero eum odio, mollitia aspernatur perferendis. Fugiat rationeadipisci dicta a culpa corporis commodi expedita!",
+          icon: "bx bx-shape-circle bx-md",
+          title: "OUR MISSION",
+          desc: "Our mission is to successfully place bona fide education seekers in topflight education providers. We aim to take leadership in the education consultancy industry through the distinguished quality of our services to students and education partners. We provide all-rounded, professional support to our clients and our educational partners.",
         },
         {
-          icon: "bx bx-building-house bx-md",
-          title: "HOTEL BOOKINGS",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus vero eum odio, mollitia aspernatur perferendis. Fugiat rationeadipisci dicta a culpa corporis commodi expedita!",
+          icon: "bx bx-globe-alt bx-md",
+          title: "OUR VISION",
+          desc: "Our vision is to position Unilink Nexus International (UNI) to become a globally recognized education consultancy company by striving to create a client-first environment where our staff are energetic, caring, inclusive and professional. We will work creatively and diligently with our education partners, sharing information of value to achieve cohesive, seamless and supportive systems for our clients from the the date of first contact to graduation and beyond.",
         },
         {
-          icon: "bx bx-tone bx-md",
-          title: "TAILOR SUMMER TOURS",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus vero eum odio, mollitia aspernatur perferendis. Fugiat rationeadipisci dicta a culpa corporis commodi expedita!",
+          icon: "bx bx-cabinet bx-md",
+          title: "OUR VALUES",
+          desc: "<strong>Professional </strong> <br /> We are a team of experts and skilled practitioners, adept communicators, analysts and strategic thinkers. <br /> <strong>Creative </strong>  <br /> We are innovative, inspiring and proactive. <br /><strong>Collaborative </strong>  <br /> We work in partnership with all involved stakeholders to form valuable networks and lasting bonds. <br /><strong>Constructive</strong>  <br /> We are helpful, supportive, reliable and trustworthy. <br /><strong>Adaptable </strong>  <br /> We are open to change and new ideas while continuously striving to improve.",
         },
       ],
       destinations: [
