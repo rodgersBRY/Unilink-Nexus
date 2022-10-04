@@ -57,7 +57,7 @@
           adipisci dicta a culpa corporis commodi expedita!
         </p>
         <div class="action-btns">
-          <v-btn depressed>CONTACT US</v-btn>
+          <v-btn depressed to="/contact-us">CONTACT US</v-btn>
           <v-btn depressed>APPLY NOW</v-btn>
         </div>
       </section>
@@ -140,7 +140,6 @@ header {
     }
   }
 }
-
 .intro {
   margin: 10rem auto 5rem auto;
   display: flex;

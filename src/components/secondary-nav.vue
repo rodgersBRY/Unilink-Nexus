@@ -26,7 +26,7 @@
     </nav>
   </div>
 </template>
-  
+
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
@@ -36,6 +36,7 @@
   align-items: center;
   padding: 0 1rem;
   color: white;
+  background: rgba(0, 0, 0, 0.3);
   .logo-div {
     display: flex;
     align-items: center;
@@ -43,7 +44,7 @@
       margin-left: 1rem;
       font-size: 15px;
       text-align: center;
-      font-family: 'Great Vibes', cursive;
+      font-family: "Great Vibes", cursive;
       color: rgb(78, 255, 117);
       span {
         color: white;
