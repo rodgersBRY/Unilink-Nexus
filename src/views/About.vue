@@ -30,7 +30,7 @@
         <img
           width="40%"
           height="500px"
-          src="../assets/testimony-2.jpg"
+          src="../assets/hi-we-are.webp"
           alt="about unilink"
         />
       </section>
@@ -95,7 +95,7 @@ export default {
       ],
       destinations: [
         { img: require("../assets/about-background.jpg"), title: "Canada" },
-        { img: require("../assets/study-abroad.jpg"), title: "Israel" },
+        // { img: require("../assets/contact-background.jpg"), title: "Israel" },
         { img: require("../assets/home-background.jpg"), title: "Egypt" },
       ],
     };

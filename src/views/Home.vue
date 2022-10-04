@@ -60,9 +60,9 @@
         <div class="testimony-card">
           <v-avatar size="100" color="blue">
             <img
-              :src="require('../assets/testimony-1.jpg')"
+              :src="require('../assets/testimony-2.webp')"
               alt="unilink students"
-            />
+            />  
           </v-avatar>
           <div>
             <i class="bx bxs-quote-left bx-md"></i>
@@ -100,12 +100,12 @@ export default {
         },
       ],
       services: [
-        { title: "Study in Kenya", img: require("../assets/study_kenya.jpg") },
-        { title: "Study Abroad", img: require("../assets/study-abroad.jpg") },
-        { title: "Visa Processing", img: require("../assets/visa.jpg") },
+        { title: "Study in Kenya", img: require("../assets/study_kenya.webp") },
+        { title: "Study Abroad", img: require("../assets/study-abroad.webp") },
+        { title: "Visa Processing", img: require("../assets/visa.webp") },
         {
           title: "Scholarship Opportunity",
-          img: require("../assets/scholarship.jpg"),
+          img: require("../assets/scholarship.webp"),
         },
       ],
       testimonials: [
@@ -135,7 +135,7 @@ export default {
 
 <style lang="scss" scoped>
 .title-div {
-  background-image: url("../assets/home-background.jpg");
+  background-image: url("../assets/home-background.webp");
   background-size: cover;
   background-position: fixed;
   height: 90vh;

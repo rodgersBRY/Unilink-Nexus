@@ -127,7 +127,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background: url("../assets/contact-background.jpg");
+  background: url("../assets/contact-background.webp");
   background-size: cover;
   height: 60vh;
   .contact-us {
