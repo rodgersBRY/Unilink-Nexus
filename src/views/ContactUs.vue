@@ -98,19 +98,19 @@ export default {
         {
           icon: "bx bxs-map-pin bx-lg",
           title: "ADDRESS",
-          detail: "2130 Fultron Street, Chicago, IL",
-          detail2: "94117-1080 USA",
+          detail: "Waiyaki Way, Westlands",
+          detail2: "Nairobi, Kenya",
         },
         {
           icon: "bx bxs-phone bx-lg",
           title: "PHONES",
-          detail: "+254712345678",
-          detail2: "+254787654321",
+          detail: "+254768196690",
+          detail2: "",
         },
         {
           icon: "bx bxs-envelope bx-lg",
           title: "E-MAIL",
-          detail: "info@nexusint.com",
+          detail: "uninexusintl@gmail.com",
           detail2: "",
         },
         {
