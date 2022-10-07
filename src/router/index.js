@@ -17,16 +17,21 @@ const routes = [
     name: "About",
     component: () => import("../views/About.vue"),
     meta: {
-      title: 'Unilink | About Us'
-    }
+      title: "Unilink | About Us",
+    },
   },
   {
     path: "/contact-us",
     name: "Contact Us",
     component: () => import("../views/ContactUs.vue"),
     meta: {
-      title: 'Unilink | Contact Us'
-    }
+      title: "Unilink | Contact Us",
+    },
+  },
+  {
+    path: "/apply-now",
+    name: "Apply Now",
+    component: () => import("../views/Apply.vue"),
   },
   {
     path: "/*",

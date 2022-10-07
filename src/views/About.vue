@@ -14,18 +14,6 @@
     </header>
 
     <main>
-<<<<<<< HEAD
-      <section class="more-details">
-        <div class="image-div">
-          <img
-            width="100%"
-            :src="require('../assets/study-abroad.jpg')"
-            alt="about unilink"
-          />
-        </div>
-        <div class="hello-div">
-          <h2>Hi, We are Unilink Nexus International</h2>
-=======
       <section class="intro">
         <div>
           <h2>HI,WE ARE <span>UNILINK NEXUS</span></h2>
@@ -65,7 +53,7 @@
         </p>
         <div class="action-btns">
           <v-btn depressed to="/contact-us">CONTACT US</v-btn>
-          <v-btn depressed>APPLY NOW</v-btn>
+          <v-btn depressed to="/apply-now">APPLY NOW</v-btn>
         </div>
       </section>
 
@@ -78,7 +66,6 @@
             :alt="[country.title, 'unilink destinations']"
           />
           <p>{{ country.title }}</p>
->>>>>>> f9cf2e5b292255489d7705d4bca65a237a12460b
         </div>
       </section>
     </main>
@@ -151,11 +138,6 @@ header {
     }
   }
 }
-<<<<<<< HEAD
-
-.more-details {
-  display: flex;
-=======
 .intro {
   margin: 10rem auto 5rem auto;
   display: flex;
@@ -221,6 +203,5 @@ header {
       margin-top: 10px;
     }
   }
->>>>>>> f9cf2e5b292255489d7705d4bca65a237a12460b
 }
 </style>

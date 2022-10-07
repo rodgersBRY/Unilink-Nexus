@@ -1,0 +1,222 @@
+<template>
+  <div id="apply-now">
+    <header>
+      <sec-nav />
+      <h1>Apply Now</h1>
+    </header>
+
+    <main>
+      <section class="form">
+        <form action="#" method="post">
+          <h2>Application Details</h2>
+          <br />
+          <br />
+          <label for="name">Full Name<span class="required">*</span> </label>
+
+          <input
+            v-model="name"
+            type="text"
+            name="name"
+            id="name"
+            class="input"
+          />
+          <label for="email"
+            >Email Address<span class="required">*</span></label
+          >
+
+          <input
+            v-model="email"
+            type="email"
+            id="email"
+            name="email"
+            class="input"
+          />
+          <label for="phone">Phone Number<span class="required">*</span></label>
+
+          <input
+            v-model="phone"
+            type="tel"
+            name="phone"
+            id="phone"
+            class="input"
+          />
+          <label for="nationality"
+            >Nationality<span class="required">*</span></label
+          >
+
+          <input
+            v-model="nationality"
+            type="text"
+            name="nationality"
+            id="nationality"
+            class="input"
+          />
+          <label for="originCountry"
+            >Country of Origin<span class="required">*</span></label
+          >
+          <input
+            v-model="originCountry"
+            type="text"
+            name="originCountry"
+            id="originCountry"
+            class="input"
+          />
+          <label for="academicLevel"
+            >Highest Academic Level<span class="required">*</span></label
+          >
+          <select
+            v-model="academicLevel"
+            name="academicLevel"
+            id="academicLevel"
+          >
+            <option
+              v-for="qty in academicQuacks"
+              :key="qty.index"
+              :value="qty.value"
+            >
+              {{ qty.title }}
+            </option>
+          </select>
+
+          <label for="lastInstitution"
+            >Last Academic Institution Attended<span class="required"
+              >*</span
+            ></label
+          >
+          <input
+            v-model="lastInstitution"
+            type="text"
+            name="lastInstitution"
+            id="lastInstitution"
+            class="input"
+          />
+          <label for="nextLevel"
+            >Next Level of Study<span class="required">*</span></label
+          >
+          <select name="nextLevel" id="nextLevel" v-model="nextLevel">
+            <option
+              v-for="level in nextStudyLevel"
+              :key="level.index"
+              :value="level.value"
+            >
+              {{ level.title }}
+            </option>
+          </select>
+          <label for="destination"
+            >Preferred Destination<span class="required">*</span></label
+          >
+          <select
+            name="destination"
+            id="destination"
+            v-model="preferredDestination"
+          >
+            <option
+              v-for="dest in preferredDest"
+              :key="dest.index"
+              :value="dest.value"
+            >
+              {{ dest.title }}
+            </option>
+          </select>
+          <label for="addtional-info">Additional Information</label>
+          <input
+            v-model="additional_info"
+            type="text"
+            name="additional-info"
+            id="additional-info"
+            class="input"
+          />
+
+          <v-btn block dark type="submit">Apply</v-btn>
+        </form>
+      </section>
+    </main>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      originCountry: "",
+      email: "",
+      nationality: "",
+      phone: "",
+      preferredDestination: "",
+      academicLevel: "",
+      lastInstitution: "",
+      additional_info: "",
+      nextLevel: "",
+
+      preferredDest: [
+        { title: "Australia", value: "australia" },
+        { title: "Canada", value: "canada" },
+        { title: "USA", value: "usa" },
+        { title: "United Kingdom", value: "uk" },
+        { title: "Dubai", value: "dubai" },
+        { title: "New Zealand", value: "newzealand" },
+        { title: "Mauritius", value: "mauritius" },
+        { title: "India", value: "india" },
+        { title: "Malaysia", value: "malaysia" },
+        { title: "Others", value: "others" },
+      ],
+      nextStudyLevel: [
+        { title: "Pre Sessional English", value: "preSessionalEnglish" },
+        { title: "Foundation", value: "foundation" },
+        { title: "Undergraduate", value: "undergrad" },
+        { title: "Pre Masters", value: "premasters" },
+        { title: "Masters", value: "masters" },
+        { title: "PhD", value: "phd" },
+      ],
+      academicQuacks: [
+        { title: "Diploma", value: "diploma" },
+        { title: "Undergraduate Degree", value: "undergrad" },
+        { title: "Postgraduate Degree", value: "postgrad" },
+        { title: "PhD", value: "phd" },
+        { title: "others", value: "others" },
+      ],
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+header {
+  height: 50vh;
+  background-color: rgb(130, 255, 130);
+  color: white;
+  h1 {
+    margin: 5rem;
+  }
+}
+
+.form {
+  width: 50%;
+  margin: 5rem auto;
+  .input,
+  select {
+    padding: 1rem;
+    background: rgb(241, 241, 241);
+    margin: 5px 0 16px 0;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+  option {
+    padding: 15px;
+  }
+  label {
+    display: block;
+    .required {
+        color: red;
+    }
+  }
+  
+  .v-btn {
+    margin-top: 2rem;
+    background-color: green;
+  }
+}
+</style>

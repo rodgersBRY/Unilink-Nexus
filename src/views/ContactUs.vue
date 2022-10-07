@@ -34,6 +34,7 @@
           <form action="#" method="post">
             <div class="align-row">
               <input
+                v-model="fname"
                 type="text"
                 name="fname"
                 id="fname"
@@ -41,6 +42,7 @@
                 style="margin-right: 2rem"
               />
               <input
+                v-model="lname"
                 type="text"
                 name="lname"
                 id="lname"
@@ -49,6 +51,7 @@
             </div>
             <div class="align-row">
               <input
+                v-model="email"
                 type="email"
                 name="email"
                 id="email"
@@ -56,6 +59,7 @@
                 style="margin-right: 2rem"
               />
               <input
+              v-model="phone"
                 type="text"
                 name="phone"
                 id="phone"
@@ -64,6 +68,7 @@
             </div>
             <label for="message">message</label>
             <textarea
+              v-model="message"
               name="message"
               id="message"
               cols="30"
@@ -71,9 +76,10 @@
               style="margin-top: 1rem"
             ></textarea>
 
-            <v-btn dark depressed right rounded>send message</v-btn>
+            <v-btn dark depressed right rounded type="submit">send message</v-btn>
           </form>
         </div>
+        
         <div class="map-div">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.45390454267!2d36.801065136019716!3d-1.2535336327513664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f170ebde5d5fb%3A0x404104f425b77384!2sHighridge%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1664793447525!5m2!1sen!2ske"
@@ -94,6 +100,11 @@
 export default {
   data() {
     return {
+      fname: "",
+      lname: "",
+      email: "",
+      phone: "",
+      message: "",
       contactInfo: [
         {
           icon: "bx bxs-map-pin bx-lg",

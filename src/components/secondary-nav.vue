@@ -1,6 +1,6 @@
 <template>
   <div class="header-nav">
-    <div class="logo-div">
+    <div class="logo-div" @click="$router.push('/')" style="cursor: pointer">
       <img
         width="100px"
         src="../assets/logo.png"
@@ -46,11 +46,7 @@
       font-size: 16px;
       text-align: center;
       font-family: "Great Vibes", cursive;
-<<<<<<< HEAD
-      color: rgb(55, 231, 55);
-=======
       color: rgb(78, 255, 117);
->>>>>>> f9cf2e5b292255489d7705d4bca65a237a12460b
       span {
         color: white;
         display: block;
