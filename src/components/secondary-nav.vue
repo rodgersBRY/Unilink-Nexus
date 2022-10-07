@@ -3,7 +3,7 @@
     <div class="logo-div">
       <img
         width="100px"
-        :src="require('@/assets/logo.png')"
+        src="../assets/logo.png"
         alt="unilink nexus, study abroad, study in kenya"
       />
       <p>Unilink <span>Nexus International</span></p>
@@ -16,21 +16,17 @@
         <router-link tag="li" to="/about" active-class="active"
           >About Us</router-link
         >
-        <router-link tag="li" to="#" active-class="active">Courses</router-link>
         <router-link tag="li" to="#" active-class="active"
-          >Services</router-link
+          >Study Abroad</router-link
         >
-        <router-link tag="li" to="#" active-class="active"
-          >Destinations</router-link
-        >
-        <router-link tag="li" to="#" active-class="active"
+        <router-link tag="li" to="/contact-us" active-class="active"
           >Contact Us</router-link
         >
       </ul>
     </nav>
   </div>
 </template>
-  
+
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
@@ -41,6 +37,7 @@
   align-items: center;
   padding: 0 1rem;
   color: white;
+  background: rgba(0, 0, 0, 0.3);
   .logo-div {
     display: flex;
     align-items: center;
@@ -49,7 +46,11 @@
       font-size: 16px;
       text-align: center;
       font-family: "Great Vibes", cursive;
+<<<<<<< HEAD
       color: rgb(55, 231, 55);
+=======
+      color: rgb(78, 255, 117);
+>>>>>>> f9cf2e5b292255489d7705d4bca65a237a12460b
       span {
         color: white;
         display: block;
@@ -66,8 +67,8 @@ nav li {
   padding: 2rem 5px;
   &:hover,
   &.active {
-    color: green;
-    border-top: 3px solid green;
+    color: rgb(78, 255, 117);
+    border-top: 3px solid rgb(78, 255, 117);
     cursor: pointer;
   }
 }

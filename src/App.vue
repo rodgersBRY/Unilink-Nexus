@@ -11,10 +11,15 @@
       </div>
       <p>&copy; {{ year }} All Rights Reserved</p>
       <div class="social-media">
-        <i class="bx bxl-facebook bx-sm"></i>
-        <i class="bx bxl-instagram bx-sm"></i>
-        <i class="bx bxl-twitter bx-sm"></i>
-        <i class="bx bxl-linkedin bx-sm"></i>
+        <v-btn
+          icon
+          href="https://www.facebook.com/profile.php?id=100076369803778"
+          target="_blank"
+          ><i class="bx bxl-facebook bx-sm"></i
+        ></v-btn>
+        <v-btn icon><i class="bx bxl-instagram bx-sm"></i></v-btn>
+        <v-btn icon><i class="bx bxl-twitter bx-sm"></i></v-btn>
+        <v-btn icon><i class="bx bxl-linkedin bx-sm"></i></v-btn>
       </div>
     </footer>
   </div>
@@ -43,7 +48,7 @@ footer {
     font-size: 14px;
     color: grey;
   }
-  .social-media i {
+  .social-media .v-btn {
     margin: 0 10px;
     background: rgba(138, 251, 255, 0.2);
     border-radius: 50%;

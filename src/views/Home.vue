@@ -8,10 +8,16 @@
       <section class="title-div">
         <h2>Hundreds of Amazing Destinations</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto eos
-          ratione fugiat, facere voluptatem, atque rem quos consectetur incidunt
-          consequatur vitae exercitationem optio? Voluptatibus et saepe illum
-          vel? Eligendi, distinctio?
+          Unilink Nexus International(UNI) is an Education Consultancy company
+          that offers support and advice to international students who desire to
+          pursue higher education abroad. We work with the best interest of our
+          students at heart. We are professional and reliable
+        </p>
+        <p>
+          Education is a fundamental right and everyone should have access to
+          quality higher education. It is with this view in mind, that we strive
+          to create opportunities for those who have genuine aspiration and
+          honest intention seeking A1, higher education institutions overseas.
         </p>
       </section>
 
@@ -42,7 +48,7 @@
         </div>
         <div class="numbers-div">
           <div class="numbers" v-for="(stat, i) in stats" :key="i">
-            <i :class="[stat.icon, 'pink--text']"></i>
+            <i :class="stat.icon"></i>
             <h3>{{ stat.numbers }}</h3>
             <p>{{ stat.text }}</p>
           </div>
@@ -53,7 +59,10 @@
         <h2 style="text-align: center">Testimonials</h2>
         <div class="testimony-card">
           <v-avatar size="100" color="blue">
-            <img :src="require('../assets/testimony-1.jpg')" alt="unilink students" />
+            <img
+              :src="require('../assets/testimony-2.webp')"
+              alt="unilink students"
+            />  
           </v-avatar>
           <div>
             <i class="bx bxs-quote-left bx-md"></i>
@@ -91,12 +100,12 @@ export default {
         },
       ],
       services: [
-        { title: "Study in Kenya", img: require("../assets/study_kenya.jpg") },
-        { title: "Study Abroad", img: require("../assets/study-abroad.jpg") },
-        { title: "Visa Processing", img: require("../assets/visa.jpg") },
+        { title: "Study in Kenya", img: require("../assets/study_kenya.webp") },
+        { title: "Study Abroad", img: require("../assets/study-abroad.webp") },
+        { title: "Visa Processing", img: require("../assets/visa.webp") },
         {
           title: "Scholarship Opportunity",
-          img: require("../assets/scholarship.jpg"),
+          img: require("../assets/scholarship.webp"),
         },
       ],
       testimonials: [
@@ -126,14 +135,13 @@ export default {
 
 <style lang="scss" scoped>
 .title-div {
-  background-image: url("../assets/home-background.jpg");
+  background-image: url("../assets/home-background.webp");
   background-size: cover;
   background-position: fixed;
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // color: white;
   padding: 5rem 3rem;
   h2 {
     font-size: 30px;
@@ -148,17 +156,10 @@ export default {
 .services-cards {
   margin: 4rem;
   display: flex;
+  justify-content: center;
   .v-card {
     margin: 0 16px;
   }
-}
-.numbers {
-  width: 200px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .watermark {
@@ -183,12 +184,24 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 2rem 6rem;
+  width: 60%;
+  margin: auto;
+  .numbers {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 .testimonials {
-  margin: 5rem 0;
+  background: rgb(245, 245, 245);
+  margin-top: 5rem;
+  padding: 5rem 0;
   .testimony-card {
     width: 50%;
-    margin: 2rem auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     .v-avatar {
