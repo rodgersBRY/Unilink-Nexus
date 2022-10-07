@@ -68,6 +68,5 @@ header {
 
 .more-details {
   display: flex;
-  .image-
 }
 </style>
