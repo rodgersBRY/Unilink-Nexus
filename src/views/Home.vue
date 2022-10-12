@@ -6,7 +6,14 @@
 
     <main>
       <section class="title-div">
-        <h2>Hundreds of Amazing Destinations</h2>
+        <typewriter
+          :replace="replace"
+          :type-interval="100"
+          :replace-interval="1000"
+        >
+          <h2>Hundreds of Amazing Destinations</h2>
+        </typewriter>
+
         <p>
           Unilink Nexus International(UNI) is an Education Consultancy company
           that offers support and advice to international students who desire to
@@ -32,9 +39,6 @@
             />
           </v-card-image>
           <v-card-title>{{ service.title }}</v-card-title>
-          <v-card-text>
-            Lorem ipsum dolor, sit amet consectetur adipisicing.
-          </v-card-text>
         </v-card>
       </div>
 
@@ -43,7 +47,7 @@
           <p class="watermark-text">Proud Partners</p>
           <div class="absolute-div">
             <h2>We are Proud</h2>
-            <v-btn>Apply Now</v-btn>
+            <v-btn to="/apply-now">Apply Now</v-btn>
           </div>
         </div>
         <div class="numbers-div">
@@ -57,23 +61,28 @@
 
       <section class="testimonials">
         <h2 style="text-align: center">Testimonials</h2>
-        <div class="testimony-card">
+        <div class="testimony-card" v-for="(tst, i) in testimonials" :key="i">
           <v-avatar size="100" color="blue">
             <img
-              :src="require('../assets/testimony-2.webp')"
+              :src="tst.imageUrl"
               alt="unilink students"
-            />  
+            />
           </v-avatar>
           <div>
             <i class="bx bxs-quote-left bx-md"></i>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore tenetur saepe aliquam itaque repellat blanditiis
-              officiis modi eaque ipsa perspiciatis ab, dolores, enim vel labore
-              consequatur ipsam nemo!
+              {{tst.comment}}
             </p>
-            <h4>Brian Mawira</h4>
+            <h4>{{tst.name}}</h4>
           </div>
+          <a @click="plusSlides(-1)" class="prev">&#10094;</a>
+          <a @click="plusSlides(1)" class="next">&#10095;</a>
+        </div>
+
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
         </div>
       </section>
     </main>
@@ -81,21 +90,29 @@
 </template>
 
 <script>
+import Typewriter from "typewriter-vue";
 import NavBar from "../components/home_nav.vue";
 
 export default {
   name: "Home",
+
   components: {
     "nav-bar": NavBar,
+    typewriter: Typewriter,
   },
+
   data() {
     return {
+      replace: [
+        { from: "Vue", to: "react" },
+        { from: "Typewriter vue", to: "Typewriter React" },
+      ],
       stats: [
-        { icon: "bx bx-group bx-md", numbers: "55", text: "Universities" },
-        { icon: "bx bx-book-bookmark bx-md", numbers: "20", text: "Courses" },
+        { icon: "bx bx-group bx-md", numbers: "55+", text: "Universities" },
+        { icon: "bx bx-book-bookmark bx-md", numbers: "20+", text: "Courses" },
         {
           icon: "bx bx-universal-access bx-md",
-          numbers: "324",
+          numbers: "100+",
           text: "Enrolled Students",
         },
       ],
@@ -111,19 +128,19 @@ export default {
       testimonials: [
         {
           name: "Brian Mawira",
-          imageUrl: "",
+          imageUrl: require("../assets/testimony-1.webp"),
           comment:
             "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique facere atque cum culpa doloremque nulla delectus fugiat ea libero minima facilis doloribus nemo animi, possimus recusandae.",
         },
         {
           name: "Justin Mawira",
-          imageUrl: "",
+          imageUrl: require("../assets/testimony-2.webp"),
           comment:
             "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique facere atque cum culpa doloremque nulla delectus fugiat ea libero minima facilis doloribus nemo animi, possimus recusandae.",
         },
         {
           name: "Maureen Gacherii",
-          imageUrl: "",
+          imageUrl: require("../assets/testimony-1.webp"),
           comment:
             "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique facere atque cum culpa doloremque nulla delectus fugiat ea libero minima facilis doloribus nemo animi, possimus recusandae.",
         },
@@ -202,13 +219,25 @@ export default {
   .testimony-card {
     width: 50%;
     margin: 0 auto;
-    display: flex;
+    display: none;
     align-items: center;
+    position: relative;
     .v-avatar {
       margin-right: 2rem;
     }
     div h4 {
       margin-top: 1rem;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -30px;
+      padding: 1rem;
+      color: #888;
+      font-weight: bold;
+      fonsize
     }
   }
 }

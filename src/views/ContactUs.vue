@@ -31,7 +31,7 @@
             available 24/7 via fax or email. You can also use a quick contact
             form below or visit our office personally.
           </p>
-          <form action="#" method="post">
+          <form @submit.prevent="sendFeedback">
             <div class="align-row">
               <input
                 v-model="fname"
@@ -59,7 +59,7 @@
                 style="margin-right: 2rem"
               />
               <input
-              v-model="phone"
+                v-model="phone"
                 type="text"
                 name="phone"
                 id="phone"
@@ -76,13 +76,15 @@
               style="margin-top: 1rem"
             ></textarea>
 
-            <v-btn dark depressed right rounded type="submit">send message</v-btn>
+            <v-btn dark depressed right rounded type="submit"
+              >send message</v-btn
+            >
           </form>
         </div>
-        
+
         <div class="map-div">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.45390454267!2d36.801065136019716!3d-1.2535336327513664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f170ebde5d5fb%3A0x404104f425b77384!2sHighridge%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1664793447525!5m2!1sen!2ske"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.850471361465!2d36.796834114868346!3d-1.2620415359564503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f176bc58b7517%3A0xa3cc2e9c1630138d!2sDunhill%20Towers!5e0!3m2!1sen!2ske!4v1665232335585!5m2!1sen!2ske"
             width="100%"
             height="100%"
             style="border: 0"
@@ -97,6 +99,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -109,14 +113,14 @@ export default {
         {
           icon: "bx bxs-map-pin bx-lg",
           title: "ADDRESS",
-          detail: "Waiyaki Way, Westlands",
-          detail2: "Nairobi, Kenya",
+          detail: "Burundi: Patrice Lumumba Ave. Opp KCB Siege",
+          detail2: "Nairobi: Westlands, Waiyaki Way. Dunhill Towers",
         },
         {
           icon: "bx bxs-phone bx-lg",
           title: "PHONES",
           detail: "+254768196690",
-          detail2: "",
+          detail2: "+25768196690",
         },
         {
           icon: "bx bxs-envelope bx-lg",
@@ -133,6 +137,12 @@ export default {
       ],
     };
   },
+
+  methods: {
+    sendFeedback() {
+      axios.post('/api/contactUs', "Hello world")
+    }
+  }
 };
 </script>
 

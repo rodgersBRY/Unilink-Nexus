@@ -7,14 +7,14 @@
 
     <main>
       <section class="form">
-        <form action="#" method="post">
+        <form @submit.prevent="submitApplication">
           <h2>Application Details</h2>
           <br />
           <br />
           <label for="name">Full Name<span class="required">*</span> </label>
 
           <input
-            v-model="name"
+            v-model="formData.name"
             type="text"
             name="name"
             id="name"
@@ -25,7 +25,7 @@
           >
 
           <input
-            v-model="email"
+            v-model="formData.email"
             type="email"
             id="email"
             name="email"
@@ -34,7 +34,7 @@
           <label for="phone">Phone Number<span class="required">*</span></label>
 
           <input
-            v-model="phone"
+            v-model="formData.phone"
             type="tel"
             name="phone"
             id="phone"
@@ -45,7 +45,7 @@
           >
 
           <input
-            v-model="nationality"
+            v-model="formData.nationality"
             type="text"
             name="nationality"
             id="nationality"
@@ -55,7 +55,7 @@
             >Country of Origin<span class="required">*</span></label
           >
           <input
-            v-model="originCountry"
+            v-model="formData.originCountry"
             type="text"
             name="originCountry"
             id="originCountry"
@@ -65,7 +65,7 @@
             >Highest Academic Level<span class="required">*</span></label
           >
           <select
-            v-model="academicLevel"
+            v-model="formData.academicLevel"
             name="academicLevel"
             id="academicLevel"
           >
@@ -84,7 +84,7 @@
             ></label
           >
           <input
-            v-model="lastInstitution"
+            v-model="formData.lastInstitution"
             type="text"
             name="lastInstitution"
             id="lastInstitution"
@@ -93,7 +93,7 @@
           <label for="nextLevel"
             >Next Level of Study<span class="required">*</span></label
           >
-          <select name="nextLevel" id="nextLevel" v-model="nextLevel">
+          <select name="nextLevel" id="nextLevel" v-model="formData.nextLevel">
             <option
               v-for="level in nextStudyLevel"
               :key="level.index"
@@ -108,7 +108,7 @@
           <select
             name="destination"
             id="destination"
-            v-model="preferredDestination"
+            v-model="formData.preferredDestination"
           >
             <option
               v-for="dest in preferredDest"
@@ -120,7 +120,7 @@
           </select>
           <label for="addtional-info">Additional Information</label>
           <input
-            v-model="additional_info"
+            v-model="formData.additional_info"
             type="text"
             name="additional-info"
             id="additional-info"
@@ -135,19 +135,23 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      name: "",
-      originCountry: "",
-      email: "",
-      nationality: "",
-      phone: "",
-      preferredDestination: "",
-      academicLevel: "",
-      lastInstitution: "",
-      additional_info: "",
-      nextLevel: "",
+      formData: {
+        name: "",
+        originCountry: "",
+        email: "",
+        nationality: "",
+        phone: "",
+        preferredDestination: "",
+        academicLevel: "",
+        lastInstitution: "",
+        additional_info: "",
+        nextLevel: "",
+      },
 
       preferredDest: [
         { title: "Australia", value: "australia" },
@@ -178,6 +182,12 @@ export default {
       ],
     };
   },
+
+  methods: {
+    async submitApplication() {
+      await axios.post("/api/apply", this.formData);
+    },
+  },
 };
 </script>
 
@@ -199,6 +209,7 @@ header {
     padding: 1rem;
     background: rgb(241, 241, 241);
     margin: 5px 0 16px 0;
+    border-radius: 5px;
     width: 100%;
     &:focus {
       outline: none;
@@ -210,10 +221,10 @@ header {
   label {
     display: block;
     .required {
-        color: red;
+      color: red;
     }
   }
-  
+
   .v-btn {
     margin-top: 2rem;
     background-color: green;
