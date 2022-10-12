@@ -20,6 +20,9 @@
           pursue higher education abroad. We work with the best interest of our
           students at heart. We are professional and reliable
         </p>
+      </section>
+
+      <section class="subheader">
         <p>
           Education is a fundamental right and everyone should have access to
           quality higher education. It is with this view in mind, that we strive
@@ -63,18 +66,16 @@
         <h2 style="text-align: center">Testimonials</h2>
         <div class="testimony-card" v-for="(tst, i) in testimonials" :key="i">
           <v-avatar size="100" color="blue">
-            <img
-              :src="tst.imageUrl"
-              alt="unilink students"
-            />
+            <img :src="tst.imageUrl" alt="unilink students" />
           </v-avatar>
           <div>
             <i class="bx bxs-quote-left bx-md"></i>
             <p>
-              {{tst.comment}}
+              {{ tst.comment }}
             </p>
-            <h4>{{tst.name}}</h4>
+            <h4>{{ tst.name }}</h4>
           </div>
+
           <a @click="plusSlides(-1)" class="prev">&#10094;</a>
           <a @click="plusSlides(1)" class="next">&#10095;</a>
         </div>
@@ -101,8 +102,13 @@ export default {
     typewriter: Typewriter,
   },
 
+  mounted() {
+    this.showSlides();
+  },
+
   data() {
     return {
+      slideIndex: 1,
       replace: [
         { from: "Vue", to: "react" },
         { from: "Typewriter vue", to: "Typewriter React" },
@@ -147,6 +153,34 @@ export default {
       ],
     };
   },
+
+  methods: {
+    plusSlides(n) {
+      this.showSlides((this.slideIndex += n));
+    },
+    currentSlide(n) {
+      this.showSlides((this.slideIndex = n));
+    },
+    showSlides(n) {
+      let slides = document.getElementsByClassName("testimony-card");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {
+        this.slideIndex = 1;
+      }
+      if (n < 1) {
+        this.slideIndex = slides.length;
+      }
+      for (let slide of slides) {
+        slide.style.display = "none";
+      }
+      for (let dot of dots) {
+        dot.className = dot.className.replace("active", "");
+      }
+      slides[this.slideIndex - 1].style.display = "block";
+      dots[this.slideIndex - 1].className += " active";
+    },
+  },
 };
 </script>
 
@@ -168,6 +202,13 @@ export default {
     font-size: 20px;
     margin-top: 3rem;
   }
+}
+
+.subheader {
+  width: 50%;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-size: 20px;
 }
 
 .services-cards {
@@ -219,7 +260,6 @@ export default {
   .testimony-card {
     width: 50%;
     margin: 0 auto;
-    display: none;
     align-items: center;
     position: relative;
     .v-avatar {
@@ -228,7 +268,8 @@ export default {
     div h4 {
       margin-top: 1rem;
     }
-    .prev, .next {
+    .prev,
+    .next {
       cursor: pointer;
       position: absolute;
       top: 50%;
@@ -238,6 +279,39 @@ export default {
       color: #888;
       font-weight: bold;
       font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      position: absolute;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+    }
+  }
+  .dot-container {
+    text-align: center;
+    padding: 20px;
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      display: inline-block;
+      border-radius: 50%;
+      transition: background-color 0.6s ease;
+
+      .active,
+      &:hover {
+        background-color: #717171;
+      }
     }
   }
 }
