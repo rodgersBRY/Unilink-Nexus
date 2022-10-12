@@ -56,18 +56,6 @@
           <v-btn depressed to="/apply-now">APPLY NOW</v-btn>
         </div>
       </section>
-
-      <section class="destinations">
-        <div class="image" v-for="(country, i) in destinations" :key="i">
-          <img
-            width="100%"
-            height="500px"
-            :src="country.img"
-            :alt="[country.title, 'unilink destinations']"
-          />
-          <p>{{ country.title }}</p>
-        </div>
-      </section>
     </main>
   </div>
 </template>
@@ -92,11 +80,6 @@ export default {
           title: "OUR VALUES",
           desc: "<strong>Professional </strong> <br /> We are a team of experts and skilled practitioners, adept communicators, analysts and strategic thinkers. <br /> <strong>Creative </strong>  <br /> We are innovative, inspiring and proactive. <br /><strong>Collaborative </strong>  <br /> We work in partnership with all involved stakeholders to form valuable networks and lasting bonds. <br /><strong>Constructive</strong>  <br /> We are helpful, supportive, reliable and trustworthy. <br /><strong>Adaptable </strong>  <br /> We are open to change and new ideas while continuously striving to improve.",
         },
-      ],
-      destinations: [
-        { img: require("../assets/about-background.jpg"), title: "Canada" },
-        // { img: require("../assets/contact-background.jpg"), title: "Israel" },
-        { img: require("../assets/home-background.jpg"), title: "Egypt" },
       ],
     };
   },
@@ -186,21 +169,6 @@ header {
         background: red;
         color: white;
       }
-    }
-  }
-}
-
-.destinations {
-  padding: 10rem;
-  background: rgb(245, 245, 245);
-  display: flex;
-  flex-flow: row wrap;
-  .image {
-    width: 600px;
-    margin: 0 5rem 2rem auto;
-    p {
-      font-size: 18px;
-      margin-top: 10px;
     }
   }
 }

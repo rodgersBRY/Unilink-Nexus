@@ -29,6 +29,14 @@ const routes = [
     },
   },
   {
+    path: "/abroad",
+    name: "Study Abroad",
+    component: () => import("../views/Abroad.vue"),
+    meta: {
+      title: "Unilink | Study Abroad",
+    },
+  },
+  {
     path: "/apply-now",
     name: "Apply Now",
     component: () => import("../views/Apply.vue"),

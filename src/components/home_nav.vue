@@ -16,7 +16,7 @@
         <router-link tag="li" to="/about" active-class="active"
           >About Us</router-link
         >
-        <router-link tag="li" to="#" active-class="active"
+        <router-link tag="li" to="/abroad" active-class="active"
           >Study Abroad</router-link
         >
         <router-link tag="li" to="/contact-us" active-class="active"
