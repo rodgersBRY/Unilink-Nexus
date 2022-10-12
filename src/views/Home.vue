@@ -237,7 +237,7 @@ export default {
       padding: 1rem;
       color: #888;
       font-weight: bold;
-      fonsize
+      font-size: 20px;
     }
   }
 }
