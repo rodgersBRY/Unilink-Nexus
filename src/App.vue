@@ -55,4 +55,19 @@ footer {
     padding: 7px;
   }
 }
+
+// mobile device
+@media screen and (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    p {
+      margin-top: 1rem;
+    }
+    .social-media {
+      display: none;
+    }
+  }
+}
 </style>

@@ -57,6 +57,22 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .header-nav {
+    padding: 5px 10px;
+  }
+  .logo-div p {
+    display: none;
+  }
+  .v-btn {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+}
+
 nav li {
   list-style: none;
   display: inline-block;

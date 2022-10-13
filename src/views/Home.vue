@@ -32,7 +32,7 @@
       </section>
 
       <div class="services-cards">
-        <v-card width="300px" v-for="(service, i) in services" :key="i" flat>
+        <v-card v-for="(service, i) in services" :key="i" flat>
           <v-card-image>
             <img
               width="100%"
@@ -50,7 +50,7 @@
           <p class="watermark-text">Proud Partners</p>
           <div class="absolute-div">
             <h2>We are Proud</h2>
-            <v-btn to="/apply-now">Apply Now</v-btn>
+            <v-btn dark to="/apply-now">Apply Now</v-btn>
           </div>
         </div>
         <div class="numbers-div">
@@ -65,15 +65,16 @@
       <section class="testimonials">
         <h2 style="text-align: center">Testimonials</h2>
         <div class="testimony-card" v-for="(tst, i) in testimonials" :key="i">
-          <v-avatar size="100" color="blue">
+          <!-- <v-avatar size="100" color="blue">
             <img :src="tst.imageUrl" alt="unilink students" />
-          </v-avatar>
+          </v-avatar> -->
+          <h2>{{ tst.name }}</h2>
           <div>
             <i class="bx bxs-quote-left bx-md"></i>
             <p>
               {{ tst.comment }}
             </p>
-            <h4>{{ tst.name }}</h4>
+            <h4>{{ tst.country }}</h4>
           </div>
 
           <a @click="plusSlides(-1)" class="prev">&#10094;</a>
@@ -81,9 +82,12 @@
         </div>
 
         <div class="dot-container">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
+          <span
+            class="dot"
+            v-for="(tst, i) in testimonials"
+            :key="i"
+            @click="currentSlide(i + 1)"
+          ></span>
         </div>
       </section>
     </main>
@@ -133,22 +137,28 @@ export default {
       ],
       testimonials: [
         {
-          name: "Brian Mawira",
-          imageUrl: require("../assets/testimony-1.webp"),
+          name: "Elsa Keren Mugenzi",
+          country: "Canada",
           comment:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique facere atque cum culpa doloremque nulla delectus fugiat ea libero minima facilis doloribus nemo animi, possimus recusandae.",
+            "I would like to thank Unilink Nexus Int. for sticking around throughout the whole process. I am having my visa today through your sincere effort effort and with God's help. Receive all the blessings",
         },
         {
-          name: "Justin Mawira",
-          imageUrl: require("../assets/testimony-2.webp"),
+          name: "Loxel Olly",
+          country: "Poland",
           comment:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique facere atque cum culpa doloremque nulla delectus fugiat ea libero minima facilis doloribus nemo animi, possimus recusandae.",
+            "Unilink Nexus helped me apply for a university degree in Poland and they really helped with the processing and relocating to Poland after my application was successful. Totally appreciate them for their helping hand",
         },
         {
-          name: "Maureen Gacherii",
-          imageUrl: require("../assets/testimony-1.webp"),
+          name: "Amanda Christ Arikungoma",
+          country: "Canada",
           comment:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique facere atque cum culpa doloremque nulla delectus fugiat ea libero minima facilis doloribus nemo animi, possimus recusandae.",
+            "Thank you Unilink for your help in applying to study in Canada. You were really helpful in the application process and helped me with moving",
+        },
+        {
+          name: "Stone Kate Iracane",
+          country: "Canada",
+          comment:
+            "Reaching out to Unilink Nexus was the best decision I ever made. Their program opened windows and opportunities that I never even knew existed. They are reliable and very efficient and transparent with all their processing. I am very grateful for their help in landing me an opportunity abroad.",
         },
       ],
     };
@@ -159,7 +169,7 @@ export default {
       this.showSlides((this.slideIndex += n));
     },
     currentSlide(n) {
-      this.showSlides((this.slideIndex = n));
+      this.showSlides((this.SlideIndex = n));
     },
     showSlides(n) {
       let slides = document.getElementsByClassName("testimony-card");
@@ -174,8 +184,8 @@ export default {
       for (let slide of slides) {
         slide.style.display = "none";
       }
-      for (let dot of dots) {
-        dot.className = dot.className.replace("active", "");
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("active", "");
       }
       slides[this.slideIndex - 1].style.display = "block";
       dots[this.slideIndex - 1].className += " active";
@@ -195,7 +205,7 @@ export default {
   justify-content: center;
   padding: 5rem 3rem;
   h2 {
-    font-size: 30px;
+    // font-size: 30px;
   }
   p {
     width: 50%;
@@ -205,14 +215,13 @@ export default {
 }
 
 .subheader {
-  width: 50%;
   margin: 2rem auto;
   padding: 2rem;
-  font-size: 20px;
+  // font-size: 20px;
 }
 
 .services-cards {
-  margin: 4rem;
+  // margin: 4rem;
   display: flex;
   justify-content: center;
   .v-card {
@@ -222,9 +231,7 @@ export default {
 
 .watermark {
   position: relative;
-  padding: 0 2rem;
   .watermark-text {
-    font-size: 100px;
     letter-spacing: 5px;
     font-weight: bold;
     color: rgb(233, 233, 233);
@@ -232,17 +239,21 @@ export default {
   .absolute-div {
     display: flex;
     justify-content: space-between;
-    padding: 0 3rem;
     width: 100%;
     position: absolute;
-    top: 40%;
+    // top: 40%;
+    left: 0;
+    .v-btn {
+      background: red;
+    }
   }
 }
+
 .numbers-div {
   display: flex;
-  justify-content: space-between;
-  padding: 2rem 6rem;
-  width: 60%;
+  // justify-content: space-between;
+  // padding: 2rem 6rem;
+  // width: 60%;
   margin: auto;
   .numbers {
     width: 200px;
@@ -253,13 +264,12 @@ export default {
     align-items: center;
   }
 }
+
 .testimonials {
   background: rgb(245, 245, 245);
   margin-top: 5rem;
   padding: 5rem 0;
   .testimony-card {
-    width: 50%;
-    margin: 0 auto;
     align-items: center;
     position: relative;
     .v-avatar {
@@ -267,6 +277,7 @@ export default {
     }
     div h4 {
       margin-top: 1rem;
+      text-align: end;
     }
     .prev,
     .next {
@@ -311,6 +322,63 @@ export default {
       .active,
       &:hover {
         background-color: #717171;
+      }
+    }
+  }
+}
+
+// mobile device
+@media screen and (max-width: 600px) {
+  .title-div {
+    padding: 1rem;
+    color: white;
+    height: 50vh;
+    h2 {
+      font-size: 25px;
+    }
+    p {
+      width: 100%;
+    }
+  }
+  .subheader {
+    width: 100%;
+    font-size: 16px;
+  }
+  .services-cards {
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem 0;
+    .v-card {
+      width: 350px;
+    }
+  }
+  .numbers-div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .testimonials {
+    padding: 0;
+    margin: 0;
+
+    .testimony-card {
+      width: 90%;
+      margin: 1rem auto;
+    }
+  }
+
+  .watermark {
+    padding: 0 1rem;
+    .watermark-text {
+      font-size: 60px;
+      letter-spacing: 3px;
+    }
+    .absolute-div {
+      flex-direction: column;
+      align-items: center;
+      top: 20%;
+      .v-btn {
+        width: 50%;
+        margin-top: 10px;
       }
     }
   }
