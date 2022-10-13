@@ -24,6 +24,28 @@
         >
       </ul>
     </nav>
+    <div class="mobile-nav">
+      <i class="bx bx-x bx-md" role="button"></i>
+
+      <div class="nav-links">
+        <router-link tag="li" to="/" exact-active-class="active"
+          >Home</router-link
+        >
+        <router-link tag="li" to="/about" active-class="active"
+          >About Us</router-link
+        >
+        <router-link tag="li" to="/abroad" active-class="active"
+          >Study Abroad</router-link
+        >
+        <router-link tag="li" to="/contact-us" active-class="active"
+          >Contact Us</router-link
+        >
+      </div>
+    </div>
+    <div class="hamburger-menu">
+      <i class="bx bx-menu bx-md" role="button"></i>
+    </div>
+
     <v-btn dark rounded to="/apply-now">Apply Now</v-btn>
   </div>
 </template>
@@ -34,7 +56,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
   .logo-div {
     display: flex;
     align-items: center;
@@ -55,11 +76,42 @@
     background-color: red;
     font-size: 18px;
   }
+
+  .mobile-nav {
+    background-color: rgb(1, 46, 1);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    // display: none;
+    height: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    color: white;
+    transition: height 0.5s ease;
+    i {
+      text-align: end;
+      width: 100%;
+    }
+    .nav-links {
+      margin-top: 3rem;
+      li {
+        list-style: none;
+        padding: 1.5rem 0;
+        text-align: center;
+        color: white;
+        &.active,
+        &:hover {
+          background: rgb(23, 85, 23);
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
   .header-nav {
-    padding: 5px 10px;
+    padding: 0;
   }
   .logo-div p {
     display: none;

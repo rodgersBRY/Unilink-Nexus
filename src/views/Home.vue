@@ -204,9 +204,9 @@ export default {
   flex-direction: column;
   justify-content: center;
   padding: 5rem 3rem;
-  h2 {
-    // font-size: 30px;
-  }
+  // h2 {
+  //   font-size: 30px;
+  // }
   p {
     width: 50%;
     font-size: 20px;
@@ -357,12 +357,11 @@ export default {
     align-items: center;
   }
   .testimonials {
-    padding: 0;
-    margin: 0;
+    padding: 2rem 0;
 
     .testimony-card {
       width: 90%;
-      margin: 1rem auto;
+      margin: 2rem auto 1rem auto;
     }
   }
 
