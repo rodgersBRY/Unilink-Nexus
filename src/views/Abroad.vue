@@ -25,19 +25,19 @@ export default {
     return {
       destinations: [
         {
-          img: require("../assets/usa.jpg"),
+          img: require("../assets/usa.webp"),
           title: "United States of America",
         },
-        { img: require("../assets/uk.jpg"), title: "United Kingdom" },
-        { img: require("../assets/canada.jpg"), title: "Canada" },
-        { img: require("../assets/ireland.jpg"), title: "Ireland" },
-        { img: require("../assets/poland.jpg"), title: "Poland" },
-        { img: require("../assets/australia.jpg"), title: "Australia" },
+        { img: require("../assets/uk.webp"), title: "United Kingdom" },
+        { img: require("../assets/canada.webp"), title: "Canada" },
+        { img: require("../assets/ireland.webp"), title: "Ireland" },
+        { img: require("../assets/poland.webp"), title: "Poland" },
+        { img: require("../assets/australia.webp"), title: "Australia" },
         {
-          img: require("../assets/new-zealand.jpg"),
+          img: require("../assets/new-zealand.webp"),
           title: "New Zealand",
         },
-        { img: require("../assets/cyprus.jpg"), title: "Cyprus" },
+        { img: require("../assets/cyprus.webp"), title: "Cyprus" },
       ],
     };
   },
@@ -46,13 +46,12 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background-image: url('../assets/abroad.jpg');
+  background-image: url("../assets/abroad.jpg");
   background-size: cover;
   height: 60vh;
 }
 .destinations {
   padding: 5rem;
-  background: rgb(245, 245, 245);
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
