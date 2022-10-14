@@ -46,6 +46,9 @@
         <router-link tag="li" to="/contact-us" active-class="active"
           >Contact Us</router-link
         >
+        <router-link tag="li" to="/apply-now" class="mobile-apply-btn"
+          >Apply Now</router-link
+        >
       </div>
     </div>
 
@@ -145,6 +148,11 @@ export default {
       &:hover {
         background: rgb(23, 85, 23);
       }
+    }
+    .mobile-apply-btn {
+      margin: 5rem auto 0 auto;
+      background: red;
+      width: 60%;
     }
   }
 }

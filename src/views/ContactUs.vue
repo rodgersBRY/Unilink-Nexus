@@ -32,7 +32,16 @@
             available 24/7 via fax or email. You can also use a quick contact
             form below or visit our office personally.
           </p>
-          <form @submit.prevent="sendFeedback">
+          <form
+            @submit.prevent="sendFeedback"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <div hidden aria-hidden="true">
+              <label><input name="bot-field" /></label>
+            </div>
+
             <div class="align-row">
               <input
                 v-model="fname"
@@ -147,8 +156,8 @@ export default {
         message: this.message,
       };
 
-     const resp = await axios.post("/api/contactUs", formData);
-     console.log(resp);
+      const resp = await axios.post("/api/contactUs", formData);
+      console.log(resp);
     },
   },
 };

@@ -46,7 +46,8 @@
         <router-link tag="li" to="/contact-us" active-class="active"
           >Contact Us</router-link
         >
-        <router-link tag="li" to="/apply-now" class="mobile-apply-btn">Apply Now</router-link
+        <router-link tag="li" to="/apply-now" class="mobile-apply-btn"
+          >Apply Now</router-link
         >
       </div>
     </div>
@@ -147,7 +148,6 @@ export default {
       margin: 5rem auto 0 auto;
       background: red;
       width: 60%;
-      
     }
   }
 }
