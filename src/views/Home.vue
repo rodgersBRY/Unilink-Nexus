@@ -380,9 +380,10 @@ export default {
   .title-div {
     padding: 1rem;
     color: white;
-    height: 50vh;
+    height: 55vh;
     h2 {
       font-size: 25px;
+      margin-top: 1rem;
     }
     p {
       width: 100%;

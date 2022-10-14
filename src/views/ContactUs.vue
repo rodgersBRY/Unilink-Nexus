@@ -2,6 +2,7 @@
   <div id="contact-us">
     <header>
       <sec-nav />
+      
       <div class="contact-us">
         <p>Get In Touch</p>
         <p class="h1">CONTACT US</p>
@@ -39,7 +40,6 @@
                 name="fname"
                 id="fname"
                 placeholder="First Name"
-                style="margin-right: 2rem"
               />
               <input
                 v-model="lname"
@@ -56,7 +56,6 @@
                 name="email"
                 id="email"
                 placeholder="E-mail"
-                style="margin-right: 2rem"
               />
               <input
                 v-model="phone"
@@ -66,13 +65,13 @@
                 placeholder="Phone Number"
               />
             </div>
-            <label for="message">message</label>
             <textarea
               v-model="message"
               name="message"
               id="message"
               cols="30"
               rows="10"
+              placeholder="Enter your message"
               style="margin-top: 1rem"
             ></textarea>
 
@@ -99,7 +98,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   data() {
@@ -140,9 +139,9 @@ export default {
 
   methods: {
     sendFeedback() {
-      axios.post('/api/contactUs', "Hello world")
-    }
-  }
+      axios.post("/api/contactUs", "Hello world");
+    },
+  },
 };
 </script>
 
@@ -150,26 +149,17 @@ export default {
 header {
   background: url("../assets/contact-background.webp");
   background-size: cover;
-  height: 60vh;
   .contact-us {
     color: white;
-    text-align: center;
-    height: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    & > p {
-      font-size: 30px;
-    }
-    .h1 {
-      font-size: 70px;
-    }
     div {
-      margin-top: 2rem;
       text-align: center;
       display: flex;
-      justify-content: center;
       align-items: center;
+      .h1 {
+        margin: 1rem 0;
+      }
       a {
         display: inline;
         text-decoration: none;
@@ -198,11 +188,9 @@ header {
 .messaging-div {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+
   margin: 5rem auto;
   .form-div {
-    padding: 2rem 2rem 0 2rem;
-    width: 50%;
     h2 {
       margin-bottom: 3rem;
     }
@@ -211,16 +199,9 @@ header {
       background: rgb(245, 245, 245);
       padding: 1.5rem;
       border-radius: 25px;
-      width: 100%;
-
       &:focus {
         outline: none;
       }
-    }
-
-    .align-row {
-      display: flex;
-      margin: 2rem 0;
     }
 
     form .v-btn {
@@ -229,9 +210,88 @@ header {
       margin: 10px 0;
     }
   }
-  .map-div {
-    width: 700px;
-    height: 700px;
+}
+@media screen and (min-width: 900px) {
+  header {
+    height: 80vh;
+    .contact-us {
+      height: 80%;
+      align-items: center;
+      justify-content: end;
+      p {
+        font-size: 20px;
+      }
+      .h1 {
+        font-size: 50px;
+      }
+    }
+  }
+
+  .messaging-div {
+    width: 80%;
+    .form-div {
+      padding: 2rem 2rem 0 2rem;
+      width: 50%;
+      input, textarea {
+        width: 100%;
+      }
+      .align-row {
+        display: flex;
+        margin: 2rem 0;
+      }
+      .align-row > input {
+        margin-right: 10px;
+      }
+    }
+
+    .map-div {
+      width: 700px;
+      height: 700px;
+    }
+  }
+}
+
+@media screen and(max-width: 900px) {
+  header {
+    height: 50vh;
+    .contact-us {
+      height: 90%;
+      justify-content: end;
+      padding-left: 1rem;
+      p {
+        font-size: 20px;
+      }
+      .h1 {
+        font-size: 40px;
+      }
+    }
+  }
+
+  .addresses {
+    flex-direction: column;
+    .contact-item:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+    .contact-item h2 {
+      font-size: 20px;
+    }
+  }
+
+  .messaging-div {
+    flex-direction: column;
+    .form-div {
+      padding: 0 12px;
+      margin-bottom: 2rem;
+      input,textarea {
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .map-div {
+      padding: 0 10px;
+      width: 100%;
+      height: 400px;
+    }
   }
 }
 </style>

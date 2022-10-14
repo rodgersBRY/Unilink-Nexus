@@ -46,6 +46,8 @@
         <router-link tag="li" to="/contact-us" active-class="active"
           >Contact Us</router-link
         >
+        <router-link tag="li" to="/apply-now" class="mobile-apply-btn">Apply Now</router-link
+        >
       </div>
     </div>
 
@@ -91,7 +93,7 @@ export default {
   position: fixed;
   width: 100%;
   top: 0;
-  transition: top 0.5s;
+  transition: top 0.5s ease;
   align-items: center;
   color: white;
   background: rgba(0, 0, 0, 0.3);
@@ -141,6 +143,12 @@ export default {
         background: rgb(23, 85, 23);
       }
     }
+    .mobile-apply-btn {
+      margin: 5rem auto 0 auto;
+      background: red;
+      width: 60%;
+      
+    }
   }
 }
 
@@ -172,8 +180,6 @@ nav li {
 
 @media screen and (max-width: 900px) {
   #header-nav {
-    padding: 3px 0;
-    padding: 10px 2px;
     .logo-div p,
     nav {
       display: none;

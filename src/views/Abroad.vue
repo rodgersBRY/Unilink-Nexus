@@ -2,6 +2,16 @@
   <div id="abroad">
     <header>
       <sec-nav />
+
+      <div class="study-abroad">
+        <p>Travel and Expand Knowledge</p>
+        <p class="h1">STUDY ABROAD</p>
+        <div class="breadcrumbs">
+          <router-link tag="a" to="/">Home</router-link>
+          <i class="bx bx-right-arrow-alt bx-sm"></i>
+          Study Abroad
+        </div>
+      </div>
     </header>
 
     <main>
@@ -48,19 +58,74 @@ export default {
 header {
   background-image: url("../assets/abroad.jpg");
   background-size: cover;
-  height: 60vh;
+  color: white;
+
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: orange;
+    }
+  }
 }
 .destinations {
-  padding: 5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-flow: row wrap;
   .image {
-    margin: 0 5rem 2rem auto;
+    margin-bottom: 2rem;
     p {
       font-size: 18px;
       margin-top: 10px;
     }
+  }
+}
+// laptop and desktop
+@media screen and (min-width: 900px) {
+  header {
+    height: 60vh;
+    .study-abroad {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      p {
+        font-size: 20px;
+      }
+      .h1 {
+        font-size: 60px;
+        margin: 1rem 0;
+      }
+    }
+  }
+  .destinations {
+    padding: 5rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    height: 50vh;
+    .study-abroad {
+      padding: 1rem;
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      p {
+        font-size: 20px;
+      }
+      .h1 {
+        font-size: 40px;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  .destinations {
+    padding: 2rem;
   }
 }
 </style>

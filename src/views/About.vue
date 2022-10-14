@@ -5,7 +5,7 @@
       <div class="about-us">
         <p>Who We Are</p>
         <p class="h1">ABOUT US</p>
-        <div>
+        <div class="breadcrumbs">
           <router-link tag="a" to="/">Home</router-link>
           <i class="bx bx-right-arrow-alt bx-sm"></i>
           About Us
@@ -27,12 +27,7 @@
             towards the completion of their study
           </p>
         </div>
-        <img
-          width="40%"
-          height="500px"
-          src="../assets/hi-we-are.webp"
-          alt="about unilink"
-        />
+        <img src="../assets/hi-we-are.webp" alt="about unilink" />
       </section>
       <section class="values">
         <div class="value-item" v-for="(item, i) in values" :key="i">
@@ -52,8 +47,8 @@
           study.
         </p>
         <div class="action-btns">
-          <v-btn depressed to="/contact-us">CONTACT US</v-btn>
-          <v-btn depressed to="/apply-now">APPLY NOW</v-btn>
+          <v-btn to="/contact-us">CONTACT US</v-btn>
+          <v-btn  dark to="/apply-now">APPLY NOW</v-btn>
         </div>
       </section>
     </main>
@@ -91,20 +86,18 @@ header {
   background-image: url("../assets/about-background.jpg");
   background-size: cover;
   color: white;
-  height: 80vh;
   .about-us {
     text-align: center;
-    height: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     & > p {
       font-size: 30px;
     }
     .h1 {
       font-size: 70px;
     }
-    div {
+    .breadcrumbs {
       margin-top: 2rem;
       text-align: center;
       display: flex;
@@ -121,16 +114,12 @@ header {
     }
   }
 }
+
 .intro {
-  margin: 10rem auto 5rem auto;
   display: flex;
   justify-content: space-between;
-  width: 70%;
   div {
-    padding: 4rem 0;
-    width: 40%;
     h2 {
-      margin-bottom: 5rem;
       color: rgb(78, 255, 117);
       span {
         color: red;
@@ -145,7 +134,6 @@ header {
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
-
   .value-item {
     color: grey;
     width: 350px;
@@ -155,19 +143,118 @@ header {
   }
 }
 
+// laptop and desktop device
+@media screen and (min-width: 900px) {
+  header {
+    height: 80vh;
+    .about-us {
+      height: 70%;
+      justify-content: end;
+    }
+  }
+
+  .intro {
+    width: 60%;
+    margin: 10rem auto 5rem auto;
+    div {
+      padding: 4rem 0;
+      margin-right: 2rem;
+      // width: 30%;
+      h2 {
+        margin-bottom: 5rem;
+        color: rgb(78, 255, 117);
+        span {
+          color: red;
+        }
+      }
+    }
+    img {
+      max-width: 500px;
+      height: 500px;
+    }
+  }
+
+  .contactus-section {
+    padding: 4rem;
+  }
+}
+
+// mobile and tab device
+@media screen and(max-width: 900px) {
+  header {
+    height: 50vh;
+    .about-us {
+      height: 90%;
+      justify-content: end;
+      padding-left: 2rem;
+      align-items: flex-start;
+      p {
+        font-size: 20px;
+      }
+      .h1 {
+        font-size: 40px;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .intro {
+    margin: 2rem auto;
+    flex-direction: column;
+    padding: 0 3rem;
+    div {
+      margin-bottom: 2rem;
+      h2 {
+        margin-bottom: 2rem;
+        color: rgb(78, 255, 117);
+        span {
+          color: red;
+        }
+      }
+    }
+    img {
+      height: 400px;
+    }
+  }
+
+  .values {
+    .value-item:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .contactus-section {
+    padding: 4rem 1rem;
+    .action-btns {
+      display: flex;
+      flex-direction: column;
+      .v-btn:not(:first-child) {
+        margin-top: 1rem;
+        background: red;
+      }
+    }
+  }
+}
+
 .contactus-section {
   text-align: center;
-  padding: 4rem;
-
+  
   margin: 0 auto;
   .action-btns {
     margin-top: 2rem;
     .v-btn {
-      margin-right: 1rem;
       &:hover,
       &.active {
-        background: red;
+        background: black;
         color: white;
+      }
+    }
+    .v-btn:not(:first-child) {
+      background: red;
+      margin-left: 1rem;
+      &:hover {
+        background: white;
+        color: black;
       }
     }
   }

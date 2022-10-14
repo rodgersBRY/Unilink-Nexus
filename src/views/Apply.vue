@@ -2,7 +2,9 @@
   <div id="apply-now">
     <header>
       <sec-nav />
-      <h1>Apply Now</h1>
+      <div class="header-title">
+        <h1>Apply Now</h1>
+      </div>
     </header>
 
     <main>
@@ -192,18 +194,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-  height: 50vh;
-  background-color: rgb(130, 255, 130);
-  color: white;
-  h1 {
-    margin: 5rem;
+@media screen and(min-width: 900px) {
+  header {
+    height: 70vh;
+    .header-title {
+      font-size: 30px;
+    }
+  }
+  .form {
+    width: 50%;
+    margin: 5rem auto;
+  }
+}
+@media screen and(max-width: 900px) {
+  header {
+    height: 40vh;
+    .header-title {
+      font-size: 20px;
+    }
+  }
+
+  .form {
+    width: 90%;
+    margin: 5rem auto;
   }
 }
 
+header {
+  background-image: url("../assets/apply.webp");
+  background-size: cover;
+  color: white;
+  .header-title {
+    height: 90%;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 10px;
+  }
+}
 .form {
-  width: 50%;
-  margin: 5rem auto;
   .input,
   select {
     padding: 1rem;
