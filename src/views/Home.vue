@@ -327,8 +327,56 @@ export default {
   }
 }
 
+@media screen and (min-width: 900px) {
+  .title-div {
+    padding: 1rem;
+    // color: white;
+    height: 90vh;
+    h2 {
+      font-size: 50px;
+    }
+    p {
+      width: 50%;
+    }
+  }
+  .subheader {
+    width: 40%;
+    font-size: 20px;
+  }
+  .services-cards {
+    margin: 4rem 0;
+    .v-card {
+      width: 300px;
+      margin: 0 1rem;
+    }
+  }
+  .numbers-div {
+    justify-content: center;
+  }
+  .testimonials {
+
+    .testimony-card {
+      width: 50%;
+      margin: 2rem auto 1rem auto;
+    }
+  }
+
+  .watermark {
+    padding: 0 3rem;
+    .watermark-text {
+      font-size: 100px;
+      letter-spacing: 3px;
+    }
+    .absolute-div {
+      justify-content: space-around;
+      align-items: center;
+      top: 40%;
+    }
+  }
+}
+
 // mobile device
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .title-div {
     padding: 1rem;
     color: white;
@@ -349,7 +397,7 @@ export default {
     align-items: center;
     margin: 4rem 0;
     .v-card {
-      width: 350px;
+      width: 80%;
     }
   }
   .numbers-div {
