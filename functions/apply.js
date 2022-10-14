@@ -3,6 +3,9 @@ exports.handler = (event, context) => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "applying for position" }),
+    body: JSON.stringify({
+      message: "applying for position",
+      data: event.body,
+    }),
   };
 };

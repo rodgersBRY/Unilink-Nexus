@@ -2,7 +2,7 @@
   <div id="contact-us">
     <header>
       <sec-nav />
-      
+
       <div class="contact-us">
         <p>Get In Touch</p>
         <p class="h1">CONTACT US</p>
@@ -138,8 +138,17 @@ export default {
   },
 
   methods: {
-    sendFeedback() {
-      axios.post("/api/contactUs", "Hello world");
+    async sendFeedback() {
+      let formData = {
+        fname: this.fname,
+        lname: this.lname,
+        email: this.email,
+        phone: this.phone,
+        message: this.message,
+      };
+
+     const resp = await axios.post("/api/contactUs", formData);
+     console.log(resp);
     },
   },
 };
@@ -232,7 +241,8 @@ header {
     .form-div {
       padding: 2rem 2rem 0 2rem;
       width: 50%;
-      input, textarea {
+      input,
+      textarea {
         width: 100%;
       }
       .align-row {
@@ -282,7 +292,8 @@ header {
     .form-div {
       padding: 0 12px;
       margin-bottom: 2rem;
-      input,textarea {
+      input,
+      textarea {
         width: 100%;
         margin: 1rem auto;
       }
