@@ -31,7 +31,10 @@ exports.handler = (event, context, cb) => {
 
   transporter.sendMail(mail, (err, data) => {
     if (err) {
-      cb(err);
+      cb(err, {
+        statusCode: 500,
+        body: err.message,
+      });
     } else {
       cb(null, {
         statusCode: 200,
