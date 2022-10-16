@@ -1,3 +1,12 @@
-get http://localhost:8080/api/contactUs
+post http://localhost:8888/api/contactUs
+Content-Type: application/json
+
+{
+    "fname": "rodgers",
+    "lname": "brian",
+    "email": "rodgers@mail.com",
+    "message":"hello there"
+}
 
 ###
+get http://localhost:8888/api/apply

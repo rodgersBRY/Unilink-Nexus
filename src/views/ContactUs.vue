@@ -84,7 +84,13 @@
               style="margin-top: 1rem"
             ></textarea>
 
-            <v-btn dark depressed right rounded type="submit"
+            <v-btn
+              dark
+              depressed
+              right
+              rounded
+              type="submit"
+              :disabled="ifLoading"
               >send message</v-btn
             >
           </form>
@@ -112,6 +118,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      isLoading: false,
       fname: "",
       lname: "",
       email: "",
@@ -146,9 +153,15 @@ export default {
     };
   },
 
+  computed: {
+    ifLoading() {
+      return this.isLoading;
+    },
+  },
+
   methods: {
     async sendFeedback() {
-      let formData = {
+      let messageInfo = {
         fname: this.fname,
         lname: this.lname,
         email: this.email,
@@ -156,8 +169,10 @@ export default {
         message: this.message,
       };
 
-      const resp = await axios.post("/api/contactUs", formData);
-      console.log(resp);
+      this.isLoading = true;
+      const resp = await axios.post("/api/contactUs", messageInfo);
+      alert(resp.data);
+      this.isLoading = false;
     },
   },
 };

@@ -2,9 +2,6 @@
   <div class="home">
     <header>
       <nav-bar />
-    </header>
-
-    <main>
       <section class="title-div">
         <typewriter
           :replace="replace"
@@ -21,6 +18,10 @@
           students at heart. We are professional and reliable
         </p>
       </section>
+    </header>
+
+    <main>
+      
 
       <section class="subheader">
         <p>
@@ -204,9 +205,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   padding: 5rem 3rem;
-  // h2 {
-  //   font-size: 30px;
-  // }
   p {
     width: 50%;
     font-size: 20px;
@@ -217,11 +215,9 @@ export default {
 .subheader {
   margin: 2rem auto;
   padding: 2rem;
-  // font-size: 20px;
 }
 
 .services-cards {
-  // margin: 4rem;
   display: flex;
   justify-content: center;
   .v-card {
@@ -241,7 +237,6 @@ export default {
     justify-content: space-between;
     width: 100%;
     position: absolute;
-    // top: 40%;
     left: 0;
     .v-btn {
       background: red;
@@ -251,9 +246,6 @@ export default {
 
 .numbers-div {
   display: flex;
-  // justify-content: space-between;
-  // padding: 2rem 6rem;
-  // width: 60%;
   margin: auto;
   .numbers {
     width: 200px;
@@ -330,7 +322,6 @@ export default {
 @media screen and (min-width: 900px) {
   .title-div {
     padding: 1rem;
-    // color: white;
     height: 90vh;
     h2 {
       font-size: 50px;
@@ -378,15 +369,16 @@ export default {
 // mobile device
 @media screen and (max-width: 900px) {
   .title-div {
+    margin-top: 2rem;
     padding: 1rem;
-    color: white;
-    height: 55vh;
+    height: 70vh;
     h2 {
       font-size: 25px;
       margin-top: 1rem;
     }
     p {
       width: 100%;
+      font-size: 16px;
     }
   }
   .subheader {

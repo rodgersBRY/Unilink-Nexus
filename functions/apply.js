@@ -1,11 +1,6 @@
-exports.handler = (event, context) => {
-  console.log(event.body);
-
-  return {
+exports.handler = (event, context, cb) => {
+  cb(null, {
     statusCode: 200,
-    body: JSON.stringify({
-      message: "applying for position",
-      data: event.body,
-    }),
-  };
+    body: event.body,
+  });
 };
