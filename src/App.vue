@@ -9,7 +9,10 @@
           alt="unilink nexus, study abroad"
         />
       </div>
-      <p>&copy; {{ year }} All Rights Reserved</p>
+      <p>
+        &copy; {{ year }} All Rights Reserved | Developed by
+        <span><a href="mailto:brianmawira2@gmail.com">Mawira</a></span>
+      </p>
       <div class="social-media">
         <v-btn
           icon
@@ -47,6 +50,10 @@ footer {
   p {
     font-size: 14px;
     color: grey;
+    a {
+      text-decoration: none;
+      color: white;
+    }
   }
   .social-media .v-btn {
     margin: 0 10px;

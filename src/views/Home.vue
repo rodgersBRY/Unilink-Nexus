@@ -55,7 +55,7 @@
         <div class="numbers-div">
           <div class="numbers" v-for="(stat, i) in stats" :key="i">
             <i :class="stat.icon"></i>
-            <h3>{{ stat.numbers }}</h3>
+            <h3 :data-val="stat.numbers" class="num"></h3>
             <p>{{ stat.text }}</p>
           </div>
         </div>
@@ -107,21 +107,23 @@ export default {
 
   mounted() {
     this.showSlides();
+    this.animateValues();
   },
 
   data() {
     return {
       slideIndex: 1,
+
       replace: [
         { from: "Vue", to: "react" },
         { from: "Typewriter vue", to: "Typewriter React" },
       ],
       stats: [
-        { icon: "bx bx-group bx-md", numbers: "55+", text: "Universities" },
-        { icon: "bx bx-book-bookmark bx-md", numbers: "20+", text: "Courses" },
+        { icon: "bx bx-group bx-md", numbers: "70", text: "Universities" },
+        { icon: "bx bx-book-bookmark bx-md", numbers: "40", text: "Courses" },
         {
           icon: "bx bx-universal-access bx-md",
-          numbers: "100+",
+          numbers: "250",
           text: "Enrolled Students",
         },
       ],
@@ -164,6 +166,25 @@ export default {
   },
 
   methods: {
+    animateValues() {
+      let valueDisplays = document.querySelectorAll(".num");
+      let interval = 3000;
+
+      valueDisplays.forEach((val) => {
+        let startVal = 0;
+        let endVal = parseInt(val.getAttribute("data-val"));
+
+        let duration = Math.floor(interval / endVal);
+        let counter = setInterval(() => {
+          startVal += 1;
+          val.textContent = startVal;
+          if (startVal == endVal) {
+            clearInterval(counter);
+          }
+        }, duration);
+      });
+    },
+
     plusSlides(n) {
       this.showSlides((this.slideIndex += n));
     },
