@@ -9,7 +9,14 @@ Content-Type: application/json
 }
 
 ###
-get http://localhost:8888/api/apply
+post https://www.unilink.gq/.netlify/functions/apply
+Content-Type: application/json
+
+{
+    "name": "brian mawira",
+    "password": "pasord"
+
+}
 
 ###
 post https://www.unilink.gq/.netlify/functions/contactUs

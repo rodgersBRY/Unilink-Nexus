@@ -185,7 +185,7 @@ export default {
 
   methods: {
     async submitApplication() {
-      const resp = await axios.post("/api/apply", this.formData);
+      const resp = await axios.post("/.netlify/functions/apply", this.formData);
       console.log(resp.data)
     },
   },

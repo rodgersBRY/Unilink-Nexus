@@ -169,7 +169,7 @@ export default {
       };
 
       this.isLoading = true;
-      const resp = await axios.post("/api/contactUs", messageInfo);
+      const resp = await axios.post("/.netlify/functions/contactUs", messageInfo);
       alert(resp.data);
       this.isLoading = false;
     },
