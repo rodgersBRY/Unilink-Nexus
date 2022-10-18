@@ -21,8 +21,6 @@
     </header>
 
     <main>
-      
-
       <section class="subheader">
         <p>
           Education is a fundamental right and everyone should have access to
@@ -128,8 +126,8 @@ export default {
         },
       ],
       services: [
-        { title: "Study in Kenya", img: require("../assets/study_kenya.webp") },
         { title: "Study Abroad", img: require("../assets/study-abroad.webp") },
+        { title: "Study in Kenya", img: require("../assets/study_kenya.webp") },
         { title: "Visa Processing", img: require("../assets/visa.webp") },
         {
           title: "Scholarship Opportunity",
@@ -345,7 +343,6 @@ export default {
     justify-content: center;
   }
   .testimonials {
-
     .testimony-card {
       width: 50%;
       margin: 2rem auto 1rem auto;

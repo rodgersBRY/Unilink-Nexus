@@ -156,16 +156,14 @@ export default {
       },
 
       preferredDest: [
-        { title: "Australia", value: "australia" },
+        { title: "Ireland", value: "ireland" },
         { title: "Canada", value: "canada" },
         { title: "USA", value: "usa" },
         { title: "United Kingdom", value: "uk" },
-        { title: "Dubai", value: "dubai" },
+        { title: "Poland", value: "poland" },
         { title: "New Zealand", value: "newzealand" },
-        { title: "Mauritius", value: "mauritius" },
-        { title: "India", value: "india" },
-        { title: "Malaysia", value: "malaysia" },
-        { title: "Others", value: "others" },
+        { title: "Australia", value: "australia" },
+        { title: "Cyprus", value: "cyprus" },
       ],
       nextStudyLevel: [
         { title: "Pre Sessional English", value: "preSessionalEnglish" },
@@ -187,7 +185,8 @@ export default {
 
   methods: {
     async submitApplication() {
-      await axios.post("/api/apply", this.formData);
+      const resp = await axios.post("/api/apply", this.formData);
+      console.log(resp.data)
     },
   },
 };

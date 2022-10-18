@@ -10,3 +10,15 @@ Content-Type: application/json
 
 ###
 get http://localhost:8888/api/apply
+
+###
+post https://www.unilink.gq/.netlify/functions/contactUs
+Content-Type: application/json
+
+{
+    "fname": "rodgers",
+    "lname": "brian",
+    "email": "rodgers@mail.com",
+    "phone": "4567887645",
+    "message":"hello there"
+}
