@@ -90,6 +90,7 @@
               right
               rounded
               type="submit"
+              :disabled="ifLoading"
               >send message</v-btn
             >
           </form>
@@ -169,8 +170,12 @@ export default {
       };
 
       this.isLoading = true;
-      const resp = await axios.post("/.netlify/functions/contactUs", messageInfo);
-      alert(resp.data);
+      await axios.post("/.netlify/functions/contactUs", messageInfo);
+
+      axios.post("/.netlify/functions/autoreply", messageInfo).then(() => {
+        alert("message sent successfully");
+      });
+
       this.isLoading = false;
     },
   },
