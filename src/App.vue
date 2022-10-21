@@ -10,7 +10,7 @@
         />
       </div>
       <p>
-        &copy; {{ year }} All Rights Reserved | Developed by
+        &copy; {{ year }} All Rights Reserved <br /> Developed by
         <span><a href="mailto:brianmawira2@gmail.com">Mawira</a></span>
       </p>
       <div class="social-media">
@@ -50,6 +50,7 @@ footer {
   p {
     font-size: 14px;
     color: grey;
+    text-align: center;
     a {
       text-decoration: none;
       color: white;
