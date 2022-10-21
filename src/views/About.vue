@@ -83,7 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background-image: url("../assets/about-background.jpg");
+  background-image: url("../assets/about-background.webp");
   background-size: cover;
   color: white;
   .about-us {

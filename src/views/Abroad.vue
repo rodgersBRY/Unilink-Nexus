@@ -56,7 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background-image: url("../assets/abroad.jpg");
+  background-image: url("../assets/abroad.webp");
   background-size: cover;
   color: white;
 
