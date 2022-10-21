@@ -170,13 +170,15 @@ export default {
       };
 
       this.isLoading = true;
+
       await axios.post("/.netlify/functions/contactUs", messageInfo);
 
-      axios.post("/.netlify/functions/autoreply", messageInfo).then(() => {
-        alert("message sent successfully");
-      });
-
+      await axios.post(
+        "/.netlify/functions/autoreply",
+        messageInfo
+      );
       this.isLoading = false;
+      alert("message sent successfully")
     },
   },
 };
