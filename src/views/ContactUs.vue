@@ -162,8 +162,7 @@ export default {
   methods: {
     async sendFeedback() {
       let messageInfo = {
-        fname: this.fname,
-        lname: this.lname,
+        name: this.fname + " " + this.lname,
         email: this.email,
         phone: this.phone,
         message: this.message,
@@ -173,12 +172,9 @@ export default {
 
       await axios.post("/.netlify/functions/contactUs", messageInfo);
 
-      await axios.post(
-        "/.netlify/functions/autoreply",
-        messageInfo
-      );
+      await axios.post("/.netlify/functions/autoreply", messageInfo);
       this.isLoading = false;
-      alert("message sent successfully")
+      alert("message sent successfully");
     },
   },
 };

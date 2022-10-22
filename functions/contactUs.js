@@ -9,7 +9,12 @@ exports.handler = (event, context, cb) => {
     from: body.email,
     to: process.env.EMAIL,
     subject: "User Feedback",
-    html: `<h1>${body.fname} ${body.lname}</h1> <i>${body.email}</i> <p>${body.phone}</p> <p>${body.message}</p>`,
+    html: `<h3>${body.name}</h3>
+    <em>${body.email}</em>
+    <p>${body.phone}</p>
+    <p>
+      ${body.message}
+    </p>`,
   };
 
   transporter.sendMail(mail, (err, data) => {
@@ -21,7 +26,7 @@ exports.handler = (event, context, cb) => {
     } else {
       cb(null, {
         statusCode: 200,
-        body: "message sent successfully",
+        body: "success",
       });
     }
   });
