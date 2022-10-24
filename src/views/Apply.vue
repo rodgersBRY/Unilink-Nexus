@@ -3,7 +3,7 @@
     <header>
       <sec-nav />
       <div class="header-title">
-        <h1>Apply Now</h1>
+        <h1><span><a href="/">Home</a></span> / Apply Now</h1>
       </div>
     </header>
 
@@ -120,6 +120,16 @@
               {{ dest.title }}
             </option>
           </select>
+          <label for="destination"
+            >Preferred Course to Study<span class="required">*</span></label
+          >
+          <input
+            v-model="formData.preferredCourse"
+            type="text"
+            name="additional-info"
+            id="additional-info"
+            class="input"
+          />
           <label for="addtional-info">Additional Information</label>
           <input
             v-model="formData.additional_info"
@@ -151,6 +161,7 @@ export default {
         preferredDestination: "",
         academicLevel: "",
         lastInstitution: "",
+        preferredCourse: "",
         additional_info: "",
         nextLevel: "",
       },
@@ -194,32 +205,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and(min-width: 900px) {
-  header {
-    height: 70vh;
-    .header-title {
-      font-size: 30px;
-    }
-  }
-  .form {
-    width: 50%;
-    margin: 5rem auto;
-  }
-}
-@media screen and(max-width: 900px) {
-  header {
-    height: 40vh;
-    .header-title {
-      font-size: 20px;
-    }
-  }
-
-  .form {
-    width: 90%;
-    margin: 5rem auto;
-  }
-}
-
 header {
   background-image: url("../assets/apply.webp");
   background-size: cover;
@@ -229,6 +214,11 @@ header {
     display: flex;
     align-items: flex-end;
     padding-left: 10px;
+    a {
+        font-size: 30px;
+        text-decoration: none;
+        color: orangered;
+      }
   }
 }
 .form {
@@ -256,6 +246,41 @@ header {
   .v-btn {
     margin-top: 2rem;
     background-color: green;
+  }
+}
+
+// desktop devices
+@media screen and(min-width: 900px) {
+  header {
+    height: 70vh;
+    .header-title {
+      font-size: 30px;
+      display: flex;
+      a {
+        font-size: 30px;
+        text-decoration: none;
+        color: orangered;
+      }
+    }
+  }
+  .form {
+    width: 50%;
+    margin: 5rem auto;
+  }
+}
+
+// mobile device
+@media screen and(max-width: 900px) {
+  header {
+    height: 40vh;
+    .header-title {
+      font-size: 20px;
+    }
+  }
+
+  .form {
+    width: 90%;
+    margin: 5rem auto;
   }
 }
 </style>

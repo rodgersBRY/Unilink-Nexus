@@ -28,8 +28,8 @@
         <div class="form-div">
           <h2>CONTACT US</h2>
           <p>
-            You can contact us any way that is convenient for you. We are
-            available 24/7 via fax or email. You can also use a quick contact
+            You can contact us in any way that is convenient for you. We are
+            available 24/7 via email or telephone. You can also use a quick contact
             form below or visit our office personally.
           </p>
           <form

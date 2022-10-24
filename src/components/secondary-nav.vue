@@ -178,8 +178,10 @@ nav li {
   }
 }
 
+// mobile device
 @media screen and (max-width: 900px) {
   #header-nav {
+    padding: 5px 10px;
     .logo-div p,
     nav {
       display: none;
