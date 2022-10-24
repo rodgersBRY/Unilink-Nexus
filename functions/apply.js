@@ -8,16 +8,17 @@ exports.handler = (event, context, cb) => {
     to: process.env.EMAIL,
     subject: "Study Abroad Program Application",
     html: `<h1>${body.name} Application Details</h1>
-    <ul>
-      <li>country of origin:${body.originCountry}</li>
-      <li>email:${body.email}</li>
-      <li>nationality:${body.nationality}</li>
-      <li>tel:${body.phone}</li>
-      <li>preferred destination:${body.preferredDestination}</li>
-      <li>academic level:${body.academicLevel}</li>
-      <li>last institution:${body.lastInstitution}</li>
-      <li>next level of education:${body.nextLevel}</li>
-      <li>additional information:${body.additional_info}</li>
+    <ul style="list-style: none;">
+      <li>Country of Origin: ${body.originCountry}</li>
+      <li>Email: ${body.email}</li>
+      <li>Nationality: ${body.nationality}</li>
+      <li>Tel: ${body.phone}</li>
+      <li>Preferred Destination: ${body.preferredDestination}</li>
+      <li>Academic Level: ${body.academicLevel}</li>
+      <li>Last Institution: ${body.lastInstitution}</li>
+      <li>Next Level of Education: ${body.nextLevel}</li>
+      <li>Preferred Course to Study: ${body.preferredCourse}</li>
+      <li>Additional information: ${body.additional_info}</li>
     </ul>`,
   };
 
