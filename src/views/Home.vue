@@ -294,7 +294,7 @@ export default {
   .testimony-card {
     align-items: center;
     position: relative;
-    font-family:  cursive;
+    font-family:"Fuzzy Bubbles", cursive;
     .v-avatar {
       margin-right: 2rem;
     }
