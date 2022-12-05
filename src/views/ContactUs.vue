@@ -188,6 +188,7 @@ export default {
 header {
   background: url("../assets/contact-background.webp");
   background-size: cover;
+  background-attachment: fixed;
   .contact-us {
     color: white;
     display: flex;

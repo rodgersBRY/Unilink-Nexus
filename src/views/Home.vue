@@ -218,7 +218,7 @@ export default {
 .title-div {
   background-image: url("../assets/home-background.webp");
   background-size: cover;
-  background-position: fixed;
+  background-attachment: fixed;
   height: 90vh;
   display: flex;
   flex-direction: column;

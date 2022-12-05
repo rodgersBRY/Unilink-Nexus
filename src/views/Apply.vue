@@ -223,6 +223,7 @@ export default {
 header {
   background-image: url("../assets/apply.webp");
   background-size: cover;
+  background-attachment: fixed;
   color: white;
   .header-title {
     height: 90%;

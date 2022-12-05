@@ -58,6 +58,7 @@ export default {
 header {
   background-image: url("../assets/abroad.webp");
   background-size: cover;
+  background-attachment: fixed;
   color: white;
 
   .breadcrumbs {

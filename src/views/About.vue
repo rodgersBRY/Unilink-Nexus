@@ -85,6 +85,7 @@ export default {
 header {
   background-image: url("../assets/about-background.webp");
   background-size: cover;
+  background-attachment: fixed;
   color: white;
   .about-us {
     text-align: center;

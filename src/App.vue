@@ -10,19 +10,20 @@
         />
       </div>
       <p>
-        &copy; {{ year }} All Rights Reserved <br /> Developed by
-        <span><a href="mailto:brianmawira2@gmail.com">Mawira</a></span>
+        &copy; {{ year }} All Rights Reserved <br />
+        Developed by
+        <span><a href="https://mawira.cf" target="_blank">Mawira Corp</a></span>
       </p>
       <div class="social-media">
         <v-btn
           icon
-          href="https://www.facebook.com/profile.php?id=100076369803778"
+          href="https://facebook.com/profile.php?id=100076369803778"
           target="_blank"
           ><i class="bx bxl-facebook bx-sm"></i
         ></v-btn>
-        <v-btn icon><i class="bx bxl-instagram bx-sm"></i></v-btn>
-        <v-btn icon><i class="bx bxl-twitter bx-sm"></i></v-btn>
-        <v-btn icon><i class="bx bxl-linkedin bx-sm"></i></v-btn>
+        <v-btn icon href="https://instagram.com/unilink_nexus_international?igshid=YmMyMTA2M2Y=" target="_blank"><i class="bx bxl-instagram bx-sm"></i></v-btn>
+        <!-- <v-btn icon><i class="bx bxl-twitter bx-sm"></i></v-btn>
+        <v-btn icon><i class="bx bxl-linkedin bx-sm"></i></v-btn> -->
       </div>
     </footer>
   </div>
