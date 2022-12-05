@@ -233,6 +233,7 @@ export default {
     height: 100%;
     flex-direction: column;
     justify-content: center;
+    color: white;
     p {
       width: 50%;
       font-size: 20px;
