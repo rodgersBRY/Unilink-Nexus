@@ -3,20 +3,22 @@
     <header>
       <nav-bar />
       <section class="title-div">
-        <typewriter
-          :replace="replace"
-          :type-interval="100"
-          :replace-interval="1000"
-        >
-          <h2>Hundreds of Amazing Destinations</h2>
-        </typewriter>
+        <div class="overlap-div">
+          <typewriter
+            :replace="replace"
+            :type-interval="100"
+            :replace-interval="1000"
+          >
+            <h2>Choose your perfect study destination</h2>
+          </typewriter>
 
-        <p>
-          Unilink Nexus International(UNI) is an Education Consultancy company
-          that offers support and advice to international students who desire to
-          pursue higher education abroad. We work with the best interest of our
-          students at heart. We are professional and reliable
-        </p>
+          <p>
+            Unilink Nexus International(UNI) is an Education Consultancy company
+            that offers support and advice to international students who desire
+            to pursue higher education abroad. We work with the best interest of
+            our students at heart. We are professional and reliable
+          </p>
+        </div>
       </section>
     </header>
 
@@ -31,7 +33,7 @@
       </section>
 
       <div class="services-cards">
-        <v-card v-for="(service, i) in services" :key="i" flat>
+        <v-card v-for="(service, i) in services" :key="i">
           <v-card-image>
             <img
               width="100%"
@@ -40,7 +42,7 @@
               alt="study in kenya, unilink nexus international"
             />
           </v-card-image>
-          <v-card-title>{{ service.title }}</v-card-title>
+          <v-card-title><h4>{{ service.title }}</h4></v-card-title>
         </v-card>
       </div>
 
@@ -56,7 +58,7 @@
           <div class="numbers" v-for="(stat, i) in stats" :key="i">
             <i :class="stat.icon"></i>
             <h3 :data-val="stat.numbers" class="num"></h3>
-            <p>{{ stat.text }}</p>
+            <p v-html="stat.text" style="text-align: center"></p>
           </div>
         </div>
       </section>
@@ -119,8 +121,12 @@ export default {
         { from: "Typewriter vue", to: "Typewriter React" },
       ],
       stats: [
-        { icon: "bx bx-group bx-md", numbers: "70", text: "Universities" },
-        { icon: "bx bx-book-bookmark bx-md", numbers: "40", text: "Courses" },
+        {
+          icon: "bx bx-group bx-md",
+          numbers: "100",
+          text: "Universities & Colleges",
+        },
+        { icon: "bx bx-book-bookmark bx-md", numbers: "120", text: "Courses" },
         {
           icon: "bx bx-universal-access bx-md",
           numbers: "250",
@@ -220,14 +226,18 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5rem 3rem;
-  p {
-    width: 50%;
-    font-size: 20px;
-    margin-top: 3rem;
+
+  .overlap-div {
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      width: 50%;
+      font-size: 20px;
+      margin-top: 3rem;
+    }
   }
 }
 
@@ -240,7 +250,7 @@ export default {
   display: flex;
   justify-content: center;
   .v-card {
-    margin: 0 16px;
+    overflow: hidden;
   }
 }
 
@@ -283,6 +293,7 @@ export default {
   .testimony-card {
     align-items: center;
     position: relative;
+    font-family:"Fuzzy Bubbles", cursive;
     .v-avatar {
       margin-right: 2rem;
     }
@@ -338,15 +349,18 @@ export default {
   }
 }
 
+// desktop screen
 @media screen and (min-width: 900px) {
   .title-div {
-    padding: 1rem;
     height: 90vh;
-    h2 {
-      font-size: 50px;
-    }
-    p {
-      width: 50%;
+    .overlap-div {
+      padding: 3rem;
+      h2 {
+        font-size: 50px;
+      }
+      p {
+        width: 50%;
+      }
     }
   }
   .subheader {
@@ -387,16 +401,16 @@ export default {
 // mobile device
 @media screen and (max-width: 900px) {
   .title-div {
-    margin-top: 2rem;
-    padding: 1rem;
-    height: 70vh;
-    h2 {
-      font-size: 25px;
-      margin-top: 1rem;
-    }
-    p {
-      width: 100%;
-      font-size: 16px;
+    height: 60vh;
+    .overlap-div {
+      padding: 1rem;
+      h2 {
+        font-size: 25px;
+      }
+      p {
+        width: 100%;
+        font-size: 16px;
+      }
     }
   }
   .subheader {
@@ -409,6 +423,7 @@ export default {
     margin: 4rem 0;
     .v-card {
       width: 80%;
+      margin: 1rem 0;
     }
   }
   .numbers-div {

@@ -99,15 +99,18 @@ export default {
   z-index: 1;
   width: 100%;
   transition: top 0.5s;
+
   .logo-div {
     display: flex;
     align-items: center;
+
     p {
       margin-left: 1rem;
       font-size: 15px;
       text-align: center;
       font-family: "Great Vibes", cursive;
       color: rgb(78, 255, 117);
+
       span {
         color: black;
         display: block;
@@ -115,6 +118,7 @@ export default {
       }
     }
   }
+
   .v-btn {
     background-color: red;
     font-size: 18px;
@@ -133,22 +137,26 @@ export default {
   padding: 2rem 0;
   color: white;
   transition: width 0.5s ease;
+
   i {
     text-align: end;
     width: 100%;
   }
   .nav-links {
     margin-top: 3rem;
+
     li {
       list-style: none;
       padding: 1.5rem 0;
       text-align: center;
       color: white;
+
       &.active,
       &:hover {
         background: rgb(23, 85, 23);
       }
     }
+
     .mobile-apply-btn {
       margin: 5rem auto 0 auto;
       background: red;
@@ -175,9 +183,11 @@ nav li {
 @media screen and (min-width: 900px) {
   #header-nav {
     font-size: 14px;
+
     .logo-div p > span {
       font-size: 14px;
     }
+
     .v-btn {
       font-size: 14px;
       margin-right: 10px;
@@ -191,8 +201,8 @@ nav li {
 
 @media screen and (max-width: 900px) {
   #header-nav {
-    padding: 0 5px;
-    .logo-div p,
+    padding: 5px 10px;
+
     .v-btn,
     nav {
       display: none;

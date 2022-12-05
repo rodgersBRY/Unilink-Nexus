@@ -28,8 +28,8 @@
         <div class="form-div">
           <h2>CONTACT US</h2>
           <p>
-            You can contact us any way that is convenient for you. We are
-            available 24/7 via fax or email. You can also use a quick contact
+            You can contact us in any way that is convenient for you. We are
+            available 24/7 via email or telephone. You can also use a quick contact
             form below or visit our office personally.
           </p>
           <form
@@ -162,8 +162,7 @@ export default {
   methods: {
     async sendFeedback() {
       let messageInfo = {
-        fname: this.fname,
-        lname: this.lname,
+        name: this.fname + " " + this.lname,
         email: this.email,
         phone: this.phone,
         message: this.message,
@@ -173,12 +172,9 @@ export default {
 
       await axios.post("/.netlify/functions/contactUs", messageInfo);
 
-      await axios.post(
-        "/.netlify/functions/autoreply",
-        messageInfo
-      );
+      await axios.post("/.netlify/functions/autoreply", messageInfo);
       this.isLoading = false;
-      alert("message sent successfully")
+      alert("message sent successfully");
     },
   },
 };
