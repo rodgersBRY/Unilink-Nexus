@@ -2,11 +2,10 @@
   <div id="header-nav">
     <div class="logo-div" @click="$router.push('/')" style="cursor: pointer">
       <img
-        width="100px"
-        src="../assets/logo.png"
+        width="200px"
+        src="../assets/unilink_logo.png"
         alt="unilink nexus, study abroad, study in kenya"
       />
-      <p>Unilink <span>Nexus International</span></p>
     </div>
     <nav>
       <ul>
@@ -88,7 +87,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 #header-nav {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--navigation-color);
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -97,29 +96,16 @@ export default {
   transition: top 0.5s ease;
   align-items: center;
   color: white;
-  background: rgba(0, 0, 0, 0.3);
   .logo-div {
     display: flex;
     align-items: center;
-    p {
-      margin-left: 1rem;
-      font-size: 16px;
-      text-align: center;
-      font-family: "Great Vibes", cursive;
-      color: rgb(78, 255, 117);
-      span {
-        color: white;
-        display: block;
-        font-family: "Open Sans", sans-serif;
-      }
-    }
   }
 }
 
 #mobile-nav {
   height: 100%;
   width: 0;
-  background-color: rgba(3, 19, 3, 0.8);
+  background-color: var(--navigation-color);
   position: fixed;
   top: 0;
   right: 0;
@@ -141,12 +127,12 @@ export default {
       color: white;
       &.active,
       &:hover {
-        background: rgb(23, 85, 23);
+        background: var(--secondary-color);
       }
     }
     .mobile-apply-btn {
       margin: 5rem auto 0 auto;
-      background: red;
+      background: var(--main-color);
       width: 60%;
     }
   }
@@ -159,8 +145,8 @@ nav li {
   padding: 2rem 5px;
   &:hover,
   &.active {
-    color: rgb(78, 255, 117);
-    border-top: 3px solid rgb(78, 255, 117);
+    color: var(--main-color);
+    border-top: 3px solid var(--main-color);
     cursor: pointer;
   }
 }

@@ -199,7 +199,7 @@ header {
       a {
         display: inline;
         text-decoration: none;
-        color: red;
+        color: var(--main-color);
       }
     }
   }
@@ -230,10 +230,14 @@ header {
     h2 {
       margin-bottom: 3rem;
     }
+    textarea {
+      resize: none;
+    }
     form input,
     form textarea {
-      background: rgb(245, 245, 245);
+      background: var(--input-background);
       padding: 1.5rem;
+      border: 1px solid var(--secondary-color);
       border-radius: 25px;
       &:focus {
         outline: none;
@@ -242,7 +246,7 @@ header {
 
     form .v-btn {
       padding: 16px;
-      background: green;
+      background: var(--main-color);
       margin: 10px 0;
     }
   }

@@ -218,7 +218,7 @@ header {
     a {
         font-size: 30px;
         text-decoration: none;
-        color: orangered;
+        color: var(--main-color);
       }
   }
 }
@@ -226,8 +226,9 @@ header {
   .input,
   select {
     padding: 1rem;
-    background: rgb(241, 241, 241);
+    background: var(--input-background);
     margin: 5px 0 16px 0;
+    border: 1px solid var(--secondary-color);
     border-radius: 5px;
     width: 100%;
     &:focus {
@@ -246,7 +247,7 @@ header {
 
   .v-btn {
     margin-top: 2rem;
-    background-color: green;
+    background-color: var(--main-color);
   }
 }
 
@@ -260,7 +261,6 @@ header {
       a {
         font-size: 30px;
         text-decoration: none;
-        color: orangered;
       }
     }
   }

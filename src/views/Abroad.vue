@@ -66,7 +66,7 @@ header {
     align-items: center;
     a {
       text-decoration: none;
-      color: orange;
+      color: var(--main-color);
     }
   }
 }

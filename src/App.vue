@@ -4,8 +4,8 @@
     <footer>
       <div class="logo">
         <img
-          width="100px"
-          :src="require('@/assets/logo.png')"
+          width="200px"
+          :src="require('@/assets/unilink_logo.png')"
           alt="unilink nexus, study abroad"
         />
       </div>
@@ -22,8 +22,6 @@
           ><i class="bx bxl-facebook bx-sm"></i
         ></v-btn>
         <v-btn icon href="https://instagram.com/unilink_nexus_international?igshid=YmMyMTA2M2Y=" target="_blank"><i class="bx bxl-instagram bx-sm"></i></v-btn>
-        <!-- <v-btn icon><i class="bx bxl-twitter bx-sm"></i></v-btn>
-        <v-btn icon><i class="bx bxl-linkedin bx-sm"></i></v-btn> -->
       </div>
     </footer>
   </div>
@@ -40,6 +38,12 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --main-color: #ec6a2a;
+  --secondary-color: #0762a5;
+  --navigation-color: rgba(0, 7, 12, 0.9);
+  --input-background: rgb(239, 243, 251);
+}
 footer {
   background-color: black;
   color: white;
@@ -54,12 +58,12 @@ footer {
     text-align: center;
     a {
       text-decoration: none;
-      color: white;
+      color: var(--main-color);
     }
   }
   .social-media .v-btn {
     margin: 0 10px;
-    background: rgba(138, 251, 255, 0.2);
+    background: rgba(138, 206, 255, 0.2);
     border-radius: 50%;
     padding: 7px;
   }

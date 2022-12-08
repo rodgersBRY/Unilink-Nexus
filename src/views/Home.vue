@@ -269,7 +269,7 @@ export default {
     position: absolute;
     left: 0;
     .v-btn {
-      background: red;
+      background: var(--main-color);
     }
   }
 }
@@ -324,7 +324,7 @@ export default {
     }
     .prev:hover,
     .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: var(--secondary-color);
       color: white;
     }
   }

@@ -48,7 +48,7 @@
         </p>
         <div class="action-btns">
           <v-btn to="/contact-us">CONTACT US</v-btn>
-          <v-btn  dark to="/apply-now">APPLY NOW</v-btn>
+          <v-btn dark to="/apply-now">APPLY NOW</v-btn>
         </div>
       </section>
     </main>
@@ -107,7 +107,7 @@ header {
       a {
         display: inline;
         text-decoration: none;
-        color: rgb(255, 145, 72);
+        color: var(--main-color);
       }
       i {
         margin: 0 10px;
@@ -118,15 +118,6 @@ header {
 
 .intro {
   display: flex;
-  justify-content: space-between;
-  div {
-    h2 {
-      color: rgb(78, 255, 117);
-      span {
-        color: red;
-      }
-    }
-  }
 }
 
 .values {
@@ -140,6 +131,28 @@ header {
     width: 350px;
     h2 {
       margin-bottom: 2rem;
+    }
+  }
+}
+
+.contactus-section {
+  text-align: center;
+  .action-btns {
+    .v-btn {
+      margin: 10px;
+      &:hover,
+      &.active {
+        background: black;
+        color: white;
+      }
+    }
+    .v-btn:not(:first-child) {
+      background: var(--main-color);
+      // margin-left: 1rem;
+      &:hover {
+        background: white;
+        color: black;
+      }
     }
   }
 }
@@ -160,12 +173,11 @@ header {
     div {
       padding: 4rem 0;
       margin-right: 2rem;
-      // width: 30%;
       h2 {
         margin-bottom: 5rem;
-        color: rgb(78, 255, 117);
+        color: var(--secondary-color);
         span {
-          color: red;
+          color: var(--main-color);
         }
       }
     }
@@ -202,14 +214,14 @@ header {
   .intro {
     margin: 2rem auto;
     flex-direction: column;
-    padding: 0 3rem;
+    padding: 0 2rem;
     div {
       margin-bottom: 2rem;
       h2 {
         margin-bottom: 2rem;
-        color: rgb(78, 255, 117);
+        color: var(--secondary-color);
         span {
-          color: red;
+          color: var(--main-color);
         }
       }
     }
@@ -225,37 +237,13 @@ header {
   }
 
   .contactus-section {
-    padding: 4rem 1rem;
+    padding: 4rem 2rem;
     .action-btns {
       display: flex;
       flex-direction: column;
       .v-btn:not(:first-child) {
         margin-top: 1rem;
-        background: red;
-      }
-    }
-  }
-}
-
-.contactus-section {
-  text-align: center;
-  
-  margin: 0 auto;
-  .action-btns {
-    margin-top: 2rem;
-    .v-btn {
-      &:hover,
-      &.active {
-        background: black;
-        color: white;
-      }
-    }
-    .v-btn:not(:first-child) {
-      background: red;
-      margin-left: 1rem;
-      &:hover {
-        background: white;
-        color: black;
+        background: var(--main-color);
       }
     }
   }
