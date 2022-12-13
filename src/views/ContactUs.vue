@@ -29,8 +29,8 @@
           <h2>CONTACT US</h2>
           <p>
             You can contact us in any way that is convenient for you. We are
-            available 24/7 via email or telephone. You can also use a quick contact
-            form below or visit our office personally.
+            available 24/7 via email or telephone. You can also use a quick
+            contact form below or visit our office personally.
           </p>
           <form
             @submit.prevent="sendFeedback"
@@ -124,6 +124,7 @@ export default {
       email: "",
       phone: "",
       message: "",
+
       contactInfo: [
         {
           icon: "bx bxs-map-pin bx-lg",
@@ -134,8 +135,8 @@ export default {
         {
           icon: "bx bxs-phone bx-lg",
           title: "PHONES",
-          detail: "+254768196690",
-          detail2: "+25768196690",
+          detail: "Kenya: 254768196690",
+          detail2: "Burundi: 25765198175",
         },
         {
           icon: "bx bxs-envelope bx-lg",
