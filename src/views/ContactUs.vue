@@ -29,8 +29,8 @@
           <h2>CONTACT US</h2>
           <p>
             You can contact us in any way that is convenient for you. We are
-            available 24/7 via email or telephone. You can also use a quick contact
-            form below or visit our office personally.
+            available 24/7 via email or telephone. You can also use a quick
+            contact form below or visit our office personally.
           </p>
           <form
             @submit.prevent="sendFeedback"
@@ -90,8 +90,7 @@
               right
               rounded
               type="submit"
-              :disabled="ifLoading"
-              
+              :loading="ifLoading"
               >send message</v-btn
             >
           </form>
@@ -162,20 +161,32 @@ export default {
 
   methods: {
     async sendFeedback() {
-      let messageInfo = {
-        name: this.fname + " " + this.lname,
-        email: this.email,
-        phone: this.phone,
-        message: this.message,
-      };
+      if (
+        this.fname === "" ||
+        this.lname === "" ||
+        this.email === "" ||
+        this.phone === "" ||
+        this.message === ""
+      ) {
+        alert("Fill in all the fields");
+      } else {
+        let baseUrl = "/.netlify/functions";
 
-      this.isLoading = true;
+        let messageInfo = {
+          name: this.fname + " " + this.lname,
+          email: this.email,
+          phone: this.phone,
+          message: this.message,
+        };
 
-      await axios.post("/.netlify/functions/contactUs", messageInfo);
+        this.isLoading = true;
 
-      await axios.post("/.netlify/functions/autoreply", messageInfo);
-      this.isLoading = false;
-      alert("message sent successfully");
+        await axios.post(`${baseUrl}/contactUs`, messageInfo);
+
+        await axios.post(`${baseUrl}/autoreply`, messageInfo);
+        this.isLoading = false;
+        alert("message sent successfully");
+      }
     },
   },
 };
