@@ -3,7 +3,9 @@
     <header>
       <sec-nav />
       <div class="header-title">
-        <h1><span><a href="/">Home</a></span> / Apply Now</h1>
+        <h1>
+          <span><a href="/">Home</a></span> / Apply Now
+        </h1>
       </div>
     </header>
 
@@ -196,9 +198,16 @@ export default {
 
   methods: {
     async submitApplication() {
-      await axios.post("/.netlify/functions/apply", this.formData);
-      await axios.post('/.netlify/functions/autoreply', this.formData)
-      alert("Your application was submitted")
+      let baseUrl = "/.netlify/functions";
+
+      await axios.post(`${baseUrl}/apply`, this.formData);
+
+      await axios.post(`${baseUrl}/autoreply`, {
+        email: this.formData.email,
+        name: this.formData.name,
+      });
+
+      alert("Your application was submitted");
     },
   },
 };
@@ -216,10 +225,10 @@ header {
     align-items: flex-end;
     padding-left: 10px;
     a {
-        font-size: 30px;
-        text-decoration: none;
-        color: var(--main-color);
-      }
+      font-size: 30px;
+      text-decoration: none;
+      color: var(--main-color);
+    }
   }
 }
 .form {

@@ -1,10 +1,9 @@
 const transporter = require("./transporter");
 
-require("dotenv").config();
-
 exports.handler = (event, context, cb) => {
   var body = JSON.parse(event.body);
 
+  
   const mail = {
     from: body.email,
     to: process.env.EMAIL,

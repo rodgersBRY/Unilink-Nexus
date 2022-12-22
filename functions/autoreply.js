@@ -10,7 +10,7 @@ exports.handler = (event, body, cb) => {
     subject: "Email Confirmation from Unilink Nexus International",
     html: `<h3>Hi ${body.name},</h3>
     <p>
-      Thank you for expressing interest with us at Unilink Nexus! <br />
+      Thank you for expressing interest with us at Unilink Nexus. <br />
       We wanted to let you know we received your application to study abroad,
       and we are delighted to be helping you with this process. <br />
 

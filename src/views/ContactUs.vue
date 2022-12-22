@@ -179,12 +179,8 @@ export default {
           message: this.message,
         };
 
-        this.isLoading = true;
-
         await axios.post(`${baseUrl}/contactUs`, messageInfo);
 
-        await axios.post(`${baseUrl}/autoreply`, messageInfo);
-        this.isLoading = false;
         alert("message sent successfully");
       }
     },
