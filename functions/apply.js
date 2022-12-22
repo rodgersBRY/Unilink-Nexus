@@ -1,5 +1,7 @@
 const transporter = require("./transporter");
 
+require("dotenv").config();
+
 exports.handler = (event, context, cb) => {
   var body = JSON.parse(event.body);
 
