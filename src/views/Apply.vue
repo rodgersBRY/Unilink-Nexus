@@ -9,7 +9,7 @@
 
     <main>
       <section class="form">
-        <form @submit.prevent="submitApplication">
+        <form action="https://formspree.io/f/xpzeaeee" method="POST">
           <h2>Application Details</h2>
           <br />
           <br />
@@ -18,7 +18,7 @@
           <input
             v-model="formData.name"
             type="text"
-            name="name"
+            name="Full Name"
             id="name"
             class="input"
           />
@@ -30,7 +30,7 @@
             v-model="formData.email"
             type="email"
             id="email"
-            name="email"
+            name="Email"
             class="input"
           />
           <label for="phone">Phone Number<span class="required">*</span></label>
@@ -38,7 +38,7 @@
           <input
             v-model="formData.phone"
             type="tel"
-            name="phone"
+            name="Phone Number"
             id="phone"
             class="input"
           />
@@ -49,7 +49,7 @@
           <input
             v-model="formData.nationality"
             type="text"
-            name="nationality"
+            name="Nationality"
             id="nationality"
             class="input"
           />
@@ -59,7 +59,7 @@
           <input
             v-model="formData.originCountry"
             type="text"
-            name="originCountry"
+            name="Origin Country"
             id="originCountry"
             class="input"
           />
@@ -68,7 +68,7 @@
           >
           <select
             v-model="formData.academicLevel"
-            name="academicLevel"
+            name="Academic Level"
             id="academicLevel"
           >
             <option
@@ -88,7 +88,7 @@
           <input
             v-model="formData.lastInstitution"
             type="text"
-            name="lastInstitution"
+            name="Last Institution"
             id="lastInstitution"
             class="input"
           />
@@ -108,7 +108,7 @@
             >Preferred Destination<span class="required">*</span></label
           >
           <select
-            name="destination"
+            name="Destination"
             id="destination"
             v-model="formData.preferredDestination"
           >
@@ -126,15 +126,15 @@
           <input
             v-model="formData.preferredCourse"
             type="text"
-            name="additional-info"
-            id="additional-info"
+            name="Preffered Course"
+            id="prefferedCourse"
             class="input"
           />
           <label for="addtional-info">Additional Information</label>
           <input
             v-model="formData.additional_info"
             type="text"
-            name="additional-info"
+            name="Additional Information"
             id="additional-info"
             class="input"
           />
@@ -147,7 +147,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   data() {
@@ -194,13 +194,13 @@ export default {
     };
   },
 
-  methods: {
-    async submitApplication() {
-      await axios.post("/.netlify/functions/apply", this.formData);
-      await axios.post('/.netlify/functions/autoreply', this.formData)
-      alert("Your application was submitted")
-    },
-  },
+  // methods: {
+  //   async submitApplication() {
+  //     await axios.post("/.netlify/functions/apply", this.formData);
+  //     await axios.post('/.netlify/functions/autoreply', this.formData)
+  //     alert("Your application was submitted")
+  //   },
+  // },
 };
 </script>
 

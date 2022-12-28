@@ -33,7 +33,7 @@
             contact form below or visit our office personally.
           </p>
           <form
-            @submit.prevent="sendFeedback"
+            action="https://formspree.io/f/xgebwbbq"
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
@@ -46,14 +46,14 @@
               <input
                 v-model="fname"
                 type="text"
-                name="fname"
+                name="First Name"
                 id="fname"
                 placeholder="First Name"
               />
               <input
                 v-model="lname"
                 type="text"
-                name="lname"
+                name="Last Name"
                 id="lname"
                 placeholder="Last Name"
               />
@@ -62,21 +62,21 @@
               <input
                 v-model="email"
                 type="email"
-                name="email"
+                name="Email"
                 id="email"
                 placeholder="E-mail"
               />
               <input
                 v-model="phone"
                 type="text"
-                name="phone"
+                name="Phone Number"
                 id="phone"
                 placeholder="Phone Number"
               />
             </div>
             <textarea
               v-model="message"
-              name="message"
+              name="Message"
               id="message"
               cols="30"
               rows="10"
@@ -90,7 +90,6 @@
               right
               rounded
               type="submit"
-              :disabled="ifLoading"
               >send message</v-btn
             >
           </form>
@@ -113,7 +112,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   data() {
@@ -160,24 +159,25 @@ export default {
     },
   },
 
-  methods: {
-    async sendFeedback() {
-      let messageInfo = {
-        name: this.fname + " " + this.lname,
-        email: this.email,
-        phone: this.phone,
-        message: this.message,
-      };
+  // methods: {
+  //   async sendFeedback() {
+  //     let baseUrl = '/.netlify/functions'
+  //     let messageInfo = {
+  //       name: this.fname + " " + this.lname,
+  //       email: this.email,
+  //       phone: this.phone,
+  //       message: this.message,
+  //     };
 
-      this.isLoading = true;
+  //     this.isLoading = true;
 
-      await axios.post("/.netlify/functions/contactUs", messageInfo);
+  //     await axios.post(`${baseUrl}/contactUs`, messageInfo);
 
-      await axios.post("/.netlify/functions/autoreply", messageInfo);
-      this.isLoading = false;
-      alert("message sent successfully");
-    },
-  },
+  //     await axios.post(`${baseUrl}/autoreply`, messageInfo);
+  //     this.isLoading = false;
+  //     alert("message sent successfully");
+  //   },
+  // },
 };
 </script>
 
