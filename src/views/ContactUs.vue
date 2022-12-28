@@ -140,7 +140,7 @@ export default {
         {
           icon: "bx bxs-envelope bx-lg",
           title: "E-MAIL",
-          detail: "uninexusintl@gmail.com",
+          detail: "info@unilink-nexus.com",
           detail2: "",
         },
         {
