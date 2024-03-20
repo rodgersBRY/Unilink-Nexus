@@ -24,9 +24,7 @@
             id="name"
             class="input"
           />
-          <label for="email"
-            >Email Address<span class="required">*</span></label
-          >
+          <label for="email">Email Address<span class="required">*</span></label>
 
           <input
             v-model="formData.email"
@@ -149,7 +147,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 
 export default {
   data() {
@@ -167,7 +164,6 @@ export default {
         additional_info: "",
         nextLevel: "",
       },
-
       preferredDest: [
         { title: "Ireland", value: "ireland" },
         { title: "Canada", value: "canada" },
@@ -195,14 +191,6 @@ export default {
       ],
     };
   },
-
-  // methods: {
-  //   async submitApplication() {
-  //     await axios.post("/.netlify/functions/apply", this.formData);
-  //     await axios.post('/.netlify/functions/autoreply', this.formData)
-  //     alert("Your application was submitted")
-  //   },
-  // },
 };
 </script>
 

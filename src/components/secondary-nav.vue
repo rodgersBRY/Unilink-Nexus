@@ -121,6 +121,7 @@ export default {
   .nav-links {
     margin-top: 3rem;
     li {
+      font-weight: bold;
       list-style: none;
       padding: 1.5rem 0;
       text-align: center;
@@ -141,6 +142,7 @@ export default {
 nav li {
   list-style: none;
   display: inline-block;
+  font-weight: bold;
   margin: 0 1rem;
   padding: 2rem 5px;
   &:hover,

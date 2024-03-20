@@ -12,7 +12,7 @@
       <p>
         &copy; {{ year }} All Rights Reserved <br />
         Developed by
-        <span><a href="https://mawira.cf" target="_blank">Mawira Corp.</a></span>
+        <span><a href="https://mawira.netlify.app" target="_blank">Mawira Corp.</a></span>
       </p>
       <div class="social-media">
         <v-btn

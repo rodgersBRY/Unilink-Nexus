@@ -155,6 +155,7 @@ nav li {
   display: inline-block;
   margin: 0 1rem;
   padding: 2rem 5px;
+  font-weight: bold;
   font-family: "Oswald", Arial, Helvetica, sans-serif sans-serif;
 
   &:hover,

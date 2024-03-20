@@ -35,8 +35,6 @@
           <form
             action="https://formspree.io/f/xgebwbbq"
             method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
           >
             <div hidden aria-hidden="true">
               <label><input name="bot-field" /></label>
@@ -158,26 +156,6 @@ export default {
       return this.isLoading;
     },
   },
-
-  // methods: {
-  //   async sendFeedback() {
-  //     let baseUrl = '/.netlify/functions'
-  //     let messageInfo = {
-  //       name: this.fname + " " + this.lname,
-  //       email: this.email,
-  //       phone: this.phone,
-  //       message: this.message,
-  //     };
-
-  //     this.isLoading = true;
-
-  //     await axios.post(`${baseUrl}/contactUs`, messageInfo);
-
-  //     await axios.post(`${baseUrl}/autoreply`, messageInfo);
-  //     this.isLoading = false;
-  //     alert("message sent successfully");
-  //   },
-  // },
 };
 </script>
 
