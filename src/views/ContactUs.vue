@@ -132,8 +132,8 @@ export default {
         {
           icon: "bx bxs-phone bx-lg",
           title: "PHONES",
-          detail: "Kenya: 254768196690",
-          detail2: "Burundi: 25765198175",
+          detail: "Kenya: 254717425553",
+          detail2: "Burundi: 25766518377",
         },
         {
           icon: "bx bxs-envelope bx-lg",
