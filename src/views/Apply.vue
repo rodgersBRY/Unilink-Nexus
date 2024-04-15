@@ -13,10 +13,9 @@
       <section class="form">
         <form action="https://formspree.io/f/xpzeaeee" method="POST">
           <h2>Application Details</h2>
-          <br />
-          <br />
           <div class="personal_info">
             <h3>Personal Information</h3>
+            <br />
             <div class="grid-items">
               <div>
                 <label for="name">Full Name<span class="required">*</span> </label>
@@ -40,10 +39,8 @@
                   name="Email"
                   class="input"
                 />
-              </div>              
-            </div>
-            
-            <div class="grid-items">
+              </div>    
+              
               <div>
                 <label for="phone">Phone Number<span class="required">*</span></label>
 
@@ -82,78 +79,92 @@
           </div>
           
           <div class="academic_info">
-            <label for="academicLevel"
-            >Highest Academic Level<span class="required">*</span></label>
-            <select
-              v-model="formData.academicLevel"
-              name="Academic Level"
-              id="academicLevel"
-            >
-              <option
-                v-for="qty in academicQuacks"
-                :key="qty.index"
-                :value="qty.value"
-              >
-                {{ qty.title }}
-              </option>
-            </select>
+            <h3>Academic Information</h3>
+            <br />
+            <div class="grid-items">
+              <div>
+                <label for="academicLevel">Highest Academic Level<span class="required">*</span></label>
 
-            <label for="lastInstitution"
-              >Last Academic Institution Attended<span class="required"
-                >*</span
-              ></label
-            >
-            <input
-              v-model="formData.lastInstitution"
-              type="text"
-              name="Last Institution"
-              id="lastInstitution"
-              class="input"
-            />
-            <label for="nextLevel"
-              >Next Level of Study<span class="required">*</span></label
-            >
-            <select name="nextLevel" id="nextLevel" v-model="formData.nextLevel">
-              <option
-                v-for="level in nextStudyLevel"
-                :key="level.index"
-                :value="level.value"
-              >
-                {{ level.title }}
-              </option>
-            </select>
-            <label for="destination"
-              >Preferred Destination<span class="required">*</span></label
-            >
-            <select
-              name="Destination"
-              id="destination"
-              v-model="formData.preferredDestination"
-            >
-              <option
-                v-for="dest in preferredDest"
-                :key="dest.index"
-                :value="dest.value"
-              >
-                {{ dest.title }}
-              </option>
-            </select>
-            <label for="destination"
-              >Preferred Course to Study<span class="required">*</span></label
-            >
-            <input
-              v-model="formData.preferredCourse"
-              type="text"
-              name="Preffered Course"
-              id="prefferedCourse"
-              class="input"
-            />
+                <select
+                  v-model="formData.academicLevel"
+                  name="Academic Level"
+                  id="academicLevel"
+                >
+                  <option
+                    v-for="qty in academicQuacks"
+                    :key="qty.index"
+                    :value="qty.value"
+                  >
+                    {{ qty.title }}
+                  </option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="lastInstitution">Last Academic Institution Attended<span class="required">*</span></label>
+
+                <input
+                  v-model="formData.lastInstitution"
+                  type="text"
+                  name="Last Institution"
+                  id="lastInstitution"
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="nextLevel">Next Level of Study<span class="required">*</span></label>
+
+              <select name="nextLevel" id="nextLevel" v-model="formData.nextLevel">
+                <option
+                  v-for="level in nextStudyLevel"
+                  :key="level.index"
+                  :value="level.value"
+                >
+                  {{ level.title }}
+                </option>
+              </select>
+            </div>
+
+            <div class="grid-items">
+              <div>
+                <label for="destination">Preferred Course to Study<span class="required">*</span></label>
+
+                <input
+                  v-model="formData.preferredCourse"
+                  type="text"
+                  name="Preffered Course"
+                  id="prefferedCourse"
+                  class="input"
+                />
+              </div>
+
+              <div>
+                <label for="destination">Preferred Destination<span class="required">*</span></label>
+
+                <select
+                  name="Destination"
+                  id="destination"
+                  v-model="formData.preferredDestination"
+                >
+                  <option
+                    v-for="dest in preferredDest"
+                    :key="dest.index"
+                    :value="dest.value"
+                  >
+                    {{ dest.title }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            
             <label for="addtional-info">Additional Information</label>
-            <textarea name="Additional Information" id="additional-info" cols="4" class="input"></textarea>
+            <textarea name="Additional Information" id="additional-info" rows="5" class="input"></textarea>
           </div>
           
-
-          <v-btn block dark type="submit">Apply</v-btn>
+          <v-btn dark type="submit">Apply</v-btn>
         </form>
       </section>
     </main>
@@ -228,16 +239,26 @@ header {
 }
 
 .form {
-  .grid-items {
-    display: flex;
-    background-color: red;
+  .personal_info, .academic_info {
+    background: var(--fieldset-background);
+    .input,textarea, select {
+      width: 100%;
+      padding: 8px 12px;
+    }
+    .grid-items {
+      display: grid;
+      div {
+        width: 100%;
+      }
+    }
   }
-  .input,
-  select {
-    padding: 1rem;
-    background: var(--input-background);
+  
+  input,
+  select,textarea {
+    padding: 10px 5px;
+    background: white;
+    font-size: 14px;
     margin: 5px 0 16px 0;
-    border: 1px solid var(--secondary-color);
     border-radius: 5px;
     &:focus {
       outline: none;
@@ -247,20 +268,16 @@ header {
     padding: 15px;
   }
   label {
+    font-size: 13px;
     display: block;
     .required {
       color: red;
     }
   }
-
-  .v-btn {
-    margin-top: 2rem;
-    background-color: var(--main-color);
-  }
 }
 
 // desktop devices
-@media screen and(min-width: 900px) {
+@media screen and(min-width: 600px) {
   header {
     height: 70vh;
     .header-title {
@@ -273,13 +290,35 @@ header {
     }
   }
   .form {
-    width: 50%;
-    margin: 5rem auto;
+    width: 70%;
+    margin: 3rem auto;
+    .personal_info, .academic_info {
+      border-radius: 5px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      .input,textarea, select {
+        width: 100%;
+        padding: 8px 12px;
+      }
+      .grid-items {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 2rem;
+        div {
+          width: 100%;
+        }
+      }
+    }
+    .v-btn {
+      margin: 2rem auto;
+      background-color: var(--main-color);
+      width: 100%;
+      display: flex;
+    }
   }
 }
 
-// mobile device
-@media screen and(max-width: 900px) {
+// mobile and tablets
+@media screen and(max-width: 600px) {
   header {
     height: 40vh;
     .header-title {
@@ -288,8 +327,28 @@ header {
   }
 
   .form {
-    width: 90%;
-    margin: 5rem auto;
+    h2 {
+      display: none;
+    }
+    margin: 0 auto 3rem auto;
+    .personal_info, .academic_info {
+      h3 {
+        text-align: center;
+      }
+      padding: 1rem;
+      .grid-items {
+        grid-template-columns: repeat(1, 1fr);
+        div {
+          width: 100%;
+        }
+      }
+    }
+    .v-btn {
+      margin: 2rem auto;
+      background-color: var(--main-color);
+      width: 80%;
+      display: flex;
+    }
   }
 }
 </style>

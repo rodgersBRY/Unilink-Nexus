@@ -49,9 +49,10 @@ export default {
 <style lang="scss">
 :root {
   --main-color: #ec6a2a;
-  --secondary-color: #0762a5;
+  --secondary-color: rgb(7, 98, 165);
   --navigation-color: rgba(0, 7, 12, 0.9);
   --input-background: rgb(239, 243, 251);
+  --fieldset-background: rgb(201, 223, 239);
 }
 
 .whatsapp-btn {
