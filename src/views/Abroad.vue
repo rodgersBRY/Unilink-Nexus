@@ -43,6 +43,8 @@ export default {
         { img: require("../assets/ireland.webp"), title: "Ireland" },
         { img: require("../assets/poland.webp"), title: "Poland" },
         { img: require("../assets/australia.webp"), title: "Australia" },
+        { img: require("../assets/germany.webp"), title: "Germany" },
+        { img: require("../assets/spain.jpg"), title: "Spain" },
         {
           img: require("../assets/new-zealand.webp"),
           title: "New Zealand",
