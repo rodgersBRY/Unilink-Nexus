@@ -15,129 +15,143 @@
           <h2>Application Details</h2>
           <br />
           <br />
-          <label for="name">Full Name<span class="required">*</span> </label>
+          <div class="personal_info">
+            <h3>Personal Information</h3>
+            <div class="grid-items">
+              <div>
+                <label for="name">Full Name<span class="required">*</span> </label>
 
-          <input
-            v-model="formData.name"
-            type="text"
-            name="Full Name"
-            id="name"
-            class="input"
-          />
-          <label for="email">Email Address<span class="required">*</span></label>
+                <input
+                  v-model="formData.name"
+                  type="text"
+                  name="Full Name"
+                  id="name"
+                  class="input"
+                />
+              </div>
+              
+              <div>
+                <label for="email">Email Address<span class="required">*</span></label>
 
-          <input
-            v-model="formData.email"
-            type="email"
-            id="email"
-            name="Email"
-            class="input"
-          />
-          <label for="phone">Phone Number<span class="required">*</span></label>
+                <input
+                  v-model="formData.email"
+                  type="email"
+                  id="email"
+                  name="Email"
+                  class="input"
+                />
+              </div>              
+            </div>
+            
+            <div class="grid-items">
+              <div>
+                <label for="phone">Phone Number<span class="required">*</span></label>
 
-          <input
-            v-model="formData.phone"
-            type="tel"
-            name="Phone Number"
-            id="phone"
-            class="input"
-          />
-          <label for="nationality"
-            >Nationality<span class="required">*</span></label
-          >
+                <input
+                v-model="formData.phone"
+                type="tel"
+                name="Phone Number"
+                id="phone"
+                class="input"
+                />
+              </div>
 
-          <input
-            v-model="formData.nationality"
-            type="text"
-            name="Nationality"
-            id="nationality"
-            class="input"
-          />
-          <label for="originCountry"
-            >Country of Origin<span class="required">*</span></label
-          >
-          <input
-            v-model="formData.originCountry"
-            type="text"
-            name="Origin Country"
-            id="originCountry"
-            class="input"
-          />
-          <label for="academicLevel"
-            >Highest Academic Level<span class="required">*</span></label
-          >
-          <select
-            v-model="formData.academicLevel"
-            name="Academic Level"
-            id="academicLevel"
-          >
-            <option
-              v-for="qty in academicQuacks"
-              :key="qty.index"
-              :value="qty.value"
+              <div>
+                <label for="nationality">Nationality<span class="required">*</span></label>
+
+                <input
+                  v-model="formData.nationality"
+                  type="text"
+                  name="Nationality"
+                  id="nationality"
+                  class="input"
+                />
+              </div> 
+            </div>
+            
+            <label for="originCountry"
+              >Country of Origin<span class="required">*</span></label
             >
-              {{ qty.title }}
-            </option>
-          </select>
+            <input
+              v-model="formData.originCountry"
+              type="text"
+              name="Origin Country"
+              id="originCountry"
+              class="input"
+            />
+          </div>
+          
+          <div class="academic_info">
+            <label for="academicLevel"
+            >Highest Academic Level<span class="required">*</span></label>
+            <select
+              v-model="formData.academicLevel"
+              name="Academic Level"
+              id="academicLevel"
+            >
+              <option
+                v-for="qty in academicQuacks"
+                :key="qty.index"
+                :value="qty.value"
+              >
+                {{ qty.title }}
+              </option>
+            </select>
 
-          <label for="lastInstitution"
-            >Last Academic Institution Attended<span class="required"
-              >*</span
-            ></label
-          >
-          <input
-            v-model="formData.lastInstitution"
-            type="text"
-            name="Last Institution"
-            id="lastInstitution"
-            class="input"
-          />
-          <label for="nextLevel"
-            >Next Level of Study<span class="required">*</span></label
-          >
-          <select name="nextLevel" id="nextLevel" v-model="formData.nextLevel">
-            <option
-              v-for="level in nextStudyLevel"
-              :key="level.index"
-              :value="level.value"
+            <label for="lastInstitution"
+              >Last Academic Institution Attended<span class="required"
+                >*</span
+              ></label
             >
-              {{ level.title }}
-            </option>
-          </select>
-          <label for="destination"
-            >Preferred Destination<span class="required">*</span></label
-          >
-          <select
-            name="Destination"
-            id="destination"
-            v-model="formData.preferredDestination"
-          >
-            <option
-              v-for="dest in preferredDest"
-              :key="dest.index"
-              :value="dest.value"
+            <input
+              v-model="formData.lastInstitution"
+              type="text"
+              name="Last Institution"
+              id="lastInstitution"
+              class="input"
+            />
+            <label for="nextLevel"
+              >Next Level of Study<span class="required">*</span></label
             >
-              {{ dest.title }}
-            </option>
-          </select>
-          <label for="destination"
-            >Preferred Course to Study<span class="required">*</span></label
-          >
-          <input
-            v-model="formData.preferredCourse"
-            type="text"
-            name="Preffered Course"
-            id="prefferedCourse"
-            class="input"
-          />
-          <label for="addtional-info">Additional Information</label>
-          <input
-            v-model="formData.additional_info"
-            type="text"
-            name="Additional Information"
-            id="additional-info"
-            class="input"
-          />
+            <select name="nextLevel" id="nextLevel" v-model="formData.nextLevel">
+              <option
+                v-for="level in nextStudyLevel"
+                :key="level.index"
+                :value="level.value"
+              >
+                {{ level.title }}
+              </option>
+            </select>
+            <label for="destination"
+              >Preferred Destination<span class="required">*</span></label
+            >
+            <select
+              name="Destination"
+              id="destination"
+              v-model="formData.preferredDestination"
+            >
+              <option
+                v-for="dest in preferredDest"
+                :key="dest.index"
+                :value="dest.value"
+              >
+                {{ dest.title }}
+              </option>
+            </select>
+            <label for="destination"
+              >Preferred Course to Study<span class="required">*</span></label
+            >
+            <input
+              v-model="formData.preferredCourse"
+              type="text"
+              name="Preffered Course"
+              id="prefferedCourse"
+              class="input"
+            />
+            <label for="addtional-info">Additional Information</label>
+            <textarea name="Additional Information" id="additional-info" cols="4" class="input"></textarea>
+          </div>
+          
 
           <v-btn block dark type="submit">Apply</v-btn>
         </form>
@@ -212,7 +226,12 @@ header {
     }
   }
 }
+
 .form {
+  .grid-items {
+    display: flex;
+    background-color: red;
+  }
   .input,
   select {
     padding: 1rem;
@@ -220,7 +239,6 @@ header {
     margin: 5px 0 16px 0;
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
-    width: 100%;
     &:focus {
       outline: none;
     }

@@ -24,6 +24,9 @@
         <v-btn icon href="https://instagram.com/unilink_nexus_international?igshid=YmMyMTA2M2Y=" target="_blank"><i class="bx bxl-instagram bx-sm"></i></v-btn>
       </div>
     </footer>
+    <div class="whatsapp-btn" @click="openWhatsapp">
+      <img class="whatsapp-logo" :src="require('@/assets/whatsapp_logo.png')" alt="whatsapp chat">
+    </div>
   </div>
 </template>
 
@@ -34,6 +37,12 @@ export default {
       year: new Date().getFullYear(),
     };
   },
+
+  methods: {
+    openWhatsapp() {
+      window.open("https://wa.me/254712413243", "_blank")
+    }
+  }
 };
 </script>
 
@@ -44,6 +53,20 @@ export default {
   --navigation-color: rgba(0, 7, 12, 0.9);
   --input-background: rgb(239, 243, 251);
 }
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  .whatsapp-logo {
+    width: 80px;
+    &:hover {
+      cursor: pointer;
+      
+    }
+  }
+}
+
 footer {
   background-color: black;
   color: white;
