@@ -11,7 +11,7 @@
 
     <main>
       <section class="form">
-        <form action="https://formspree.io/f/xpzeaeee" method="POST">
+        <form @submit.prevent="submitForm">
           <h2>Application Details</h2>
           <div class="personal_info">
             <h3>Personal Information</h3>
@@ -23,7 +23,7 @@
                 <input
                   v-model="formData.name"
                   type="text"
-                  name="Full Name"
+                  name="name"
                   id="name"
                   class="input"
                 />
@@ -36,7 +36,7 @@
                   v-model="formData.email"
                   type="email"
                   id="email"
-                  name="Email"
+                  name="email"
                   class="input"
                 />
               </div>    
@@ -47,7 +47,7 @@
                 <input
                 v-model="formData.phone"
                 type="tel"
-                name="Phone Number"
+                name="phone"
                 id="phone"
                 class="input"
                 />
@@ -59,7 +59,7 @@
                 <input
                   v-model="formData.nationality"
                   type="text"
-                  name="Nationality"
+                  name="nationality"
                   id="nationality"
                   class="input"
                 />
@@ -70,10 +70,10 @@
               >Country of Origin<span class="required">*</span></label
             >
             <input
-              v-model="formData.originCountry"
+              v-model="formData.country"
               type="text"
-              name="Origin Country"
-              id="originCountry"
+              name="country"
+              id="country"
               class="input"
             />
           </div>
@@ -87,7 +87,7 @@
 
                 <select
                   v-model="formData.academicLevel"
-                  name="Academic Level"
+                  name="academicLevel"
                   id="academicLevel"
                 >
                   <option
@@ -116,7 +116,7 @@
             <div>
               <label for="nextLevel">Next Level of Study<span class="required">*</span></label>
 
-              <select name="nextLevel" id="nextLevel" v-model="formData.nextLevel">
+              <select name="nextLevel" id="next-level" v-model="formData.nextLevel">
                 <option
                   v-for="level in nextStudyLevel"
                   :key="level.index"
@@ -132,9 +132,9 @@
                 <label for="destination">Preferred Course to Study<span class="required">*</span></label>
 
                 <input
-                  v-model="formData.preferredCourse"
+                  v-model="formData.course"
                   type="text"
-                  name="Preffered Course"
+                  name="course"
                   id="prefferedCourse"
                   class="input"
                 />
@@ -144,9 +144,9 @@
                 <label for="destination">Preferred Destination<span class="required">*</span></label>
 
                 <select
-                  name="Destination"
+                  name="destination"
                   id="destination"
-                  v-model="formData.preferredDestination"
+                  v-model="formData.destination"
                 >
                   <option
                     v-for="dest in preferredDest"
@@ -158,13 +158,15 @@
                 </select>
               </div>
             </div>
-
             
             <label for="addtional-info">Additional Information</label>
-            <textarea name="Additional Information" id="additional-info" rows="5" class="input"></textarea>
+            <textarea v-model="formData.moreInfo" name="moreInfo" id="more-info" rows="5" class="input"></textarea>
           </div>
           
           <v-btn dark type="submit">Apply</v-btn>
+
+          <p v-if="showSuccess" class="success-message">Your Feedback has been submitted. Thank you</p>
+            <p v-if="showError" class="error-message">{{error}}</p>
         </form>
       </section>
     </main>
@@ -172,23 +174,30 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   data() {
     return {
+      loading: false,
+      showSuccess: false,
+      error: "",
+      showError: false,
+
       formData: {
         name: "",
-        originCountry: "",
+        country: "",
         email: "",
         nationality: "",
         phone: "",
-        preferredDestination: "",
+        destination: "",
         academicLevel: "",
         lastInstitution: "",
-        preferredCourse: "",
-        additional_info: "",
+        course: "",
+        moreInfo: "",
         nextLevel: "",
       },
+
       preferredDest: [
         { title: "Ireland", value: "ireland" },
         { title: "Canada", value: "canada" },
@@ -199,6 +208,7 @@ export default {
         { title: "Australia", value: "australia" },
         { title: "Cyprus", value: "cyprus" },
       ],
+
       nextStudyLevel: [
         { title: "Pre Sessional English", value: "preSessionalEnglish" },
         { title: "Foundation", value: "foundation" },
@@ -207,6 +217,7 @@ export default {
         { title: "Masters", value: "masters" },
         { title: "PhD", value: "phd" },
       ],
+
       academicQuacks: [
         { title: "Diploma", value: "diploma" },
         { title: "Undergraduate Degree", value: "undergrad" },
@@ -216,6 +227,60 @@ export default {
       ],
     };
   },
+
+  methods: {
+    async submitForm() {
+      this.loading = true;
+
+      const data = {
+        service_id: process.env.VUE_APP_EMAIL_SERVICE_ID,
+        template_id: process.env.VUE_APP_EMAIL_APPLY_TEMPLATE_ID,
+        user_id: process.env.VUE_APP_EMAIL_PUBLIC_KEY,
+        template_params: {
+          name: this.formData.name,
+          email: this.formData.email,
+          phone: this.formData.phone,
+          nationality: this.formData.nationality,
+          country: this.formData.country,
+          academicLevel: this.formData.academicLevel,
+          lastInstitution: this.formData.lastInstitution,
+          nextLevel: this.formData.nextLevel,
+          course: this.formData.course,
+          destination: this.formData.destination,
+          info: this.formData.moreInfo,
+        }
+      }
+
+      try {
+        const resp = await axios.post('https://api.emailjs.com/api/v1.0/email/send', data);
+
+        if (resp.status == 200) {
+          this.showSuccess = true;
+
+          setTimeout(() => {
+            this.showSuccess = false;
+
+            this.formData.name = "",
+            this.formData.email = "",
+            this.formData.phone = "",
+            this.formData.nationality = "",
+            this.formData.country = "",
+            this.formData.academicLevel = "",
+            this.formData.lastInstitution = "",
+            this.formData.nextLevel = "",
+            this.formData.course = "",
+            this.formData.destination = "",
+            this.formData.moreInfo = ""
+          }, 3000)
+        }
+      } catch (err) {
+        this.showError = true,
+        this.error = err;
+      } finally {
+        this.loading = false;
+      }
+    }
+  }
 };
 </script>
 
@@ -273,6 +338,22 @@ header {
     .required {
       color: red;
     }
+  }
+
+  .success-message {
+    background-color: rgb(168, 255, 168);
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: rgb(0, 80, 0);
+    font-weight: bold;
+  }
+
+  .error-message {
+    background-color: rgb(255, 191, 191);
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: rgb(154, 0, 0);
+    font-weight: bold;
   }
 }
 

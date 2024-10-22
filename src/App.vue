@@ -41,7 +41,7 @@ export default {
   methods: {
     openWhatsapp() {
       window.open("https://wa.me/25766518377", "_blank")
-    }
+    },
   }
 };
 </script>

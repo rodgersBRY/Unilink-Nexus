@@ -32,26 +32,22 @@
             available 24/7 via email or telephone. You can also use a quick
             contact form below or visit our office personally.
           </p>
-          <form
-            action="https://formspree.io/f/xgebwbbq"
-            method="POST"
-          >
-            <div hidden aria-hidden="true">
-              <label><input name="bot-field" /></label>
-            </div>
 
+          <form
+            @submit.prevent="submitForm"
+          >
             <div class="align-row">
               <input
                 v-model="fname"
                 type="text"
-                name="First Name"
+                name="fname"
                 id="fname"
                 placeholder="First Name"
               />
               <input
                 v-model="lname"
                 type="text"
-                name="Last Name"
+                name="lname"
                 id="lname"
                 placeholder="Last Name"
               />
@@ -60,21 +56,21 @@
               <input
                 v-model="email"
                 type="email"
-                name="Email"
+                name="email"
                 id="email"
                 placeholder="E-mail"
               />
               <input
                 v-model="phone"
                 type="text"
-                name="Phone Number"
+                name="phone"
                 id="phone"
                 placeholder="Phone Number"
               />
             </div>
             <textarea
               v-model="message"
-              name="Message"
+              name="message"
               id="message"
               cols="30"
               rows="10"
@@ -90,6 +86,9 @@
               type="submit"
               >send message</v-btn
             >
+
+            <p v-if="showSuccess" class="success-message">Your Feedback has been submitted. Thank you</p>
+            <p v-if="showError" class="error-message">{{error}}</p>
           </form>
         </div>
 
@@ -110,12 +109,16 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      isLoading: false,
+      loading: false,
+      showSuccess: false,
+      error: "",
+      showError: false,
+
       fname: "",
       lname: "",
       email: "",
@@ -153,9 +156,50 @@ export default {
 
   computed: {
     ifLoading() {
-      return this.isLoading;
+      return this.loading;
     },
   },
+
+  methods: {
+    async submitForm() {      
+      this.loading = true;
+
+      const data = {
+        service_id: process.env.VUE_APP_EMAIL_SERVICE_ID,
+        template_id: process.env.VUE_APP_EMAIL_FEEDBACK_TEMPLATE_ID,
+        user_id: process.env.VUE_APP_EMAIL_PUBLIC_KEY,
+        template_params: {
+          name: this.fname + " " + this.lname,
+          email: this.email,
+          phone: this.phone,
+          message: this.message,
+        }
+      }
+
+      try {
+        const resp = await axios.post('https://api.emailjs.com/api/v1.0/email/send', data);
+
+        if (resp.status == 200) {
+          this.showSuccess = true;
+
+          setTimeout(() => {
+            this.showSuccess = false;
+
+            this.fname = "";
+            this.lname = "";
+            this.email = "";
+            this.phone = "";
+            this.message = "";
+          }, 3000)
+        }
+      } catch (err) {
+        this.showError = true,
+        this.error = err;
+      } finally {
+        this.loading = false;
+      }
+    }
+  }
 };
 </script>
 
@@ -227,6 +271,24 @@ header {
       padding: 16px;
       background: var(--main-color);
       margin: 10px 0;
+    }
+
+   .success-message {
+      margin-top: 10px;
+      background-color: rgb(168, 255, 168);
+      border-radius: 20px;
+      padding: 5px 10px;
+      color: rgb(0, 80, 0);
+      font-weight: bold;
+    }
+
+    .error-message {
+      margin-top: 10px;
+      background-color: rgb(255, 191, 191);
+      border-radius: 20px;
+      padding: 5px 10px;
+      color: rgb(154, 0, 0);
+      font-weight: bold;
     }
   }
 }
